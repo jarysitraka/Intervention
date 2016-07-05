@@ -1,0 +1,15 @@
+
+    <input type="text" ng-model="nb1"/>
+
+    <select ng-model="order">
+        <option value="username">organiser par nom</option>
+        <option value="content">organiser par contenu</option>
+    </select>
+
+    <h1>{{title}}</h1>
+    <div ng-repeat="comment in comments | filter:{username:nb1} | orderBy:order">
+        <p>
+            <strong>{{comment.username | uppercase}}</strong> <br/>
+            {{comment.content}}
+        </p>
+    </div>
