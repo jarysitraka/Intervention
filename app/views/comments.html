@@ -1,4 +1,6 @@
 
+
+<div ng-hide="loading">
     <input type="text" ng-model="nb1"/>
 
     <select ng-model="order">
@@ -13,3 +15,15 @@
             {{comment.content}}
         </p>
     </div>
+
+
+
+    <form ng-submit="addComment()">
+        <input type="text" placeholder="username" ng-model="newComment.username"><br>
+        <input type="text" placeholder="city" ng-model="newComment.city"><br>
+        <input type="text" placeholder="email" ng-model="newComment.email"><br>
+        <textarea ng-model="newComment.content" title="content"></textarea><br>
+        <input type="submit" value="add comment"/>
+    </form>
+
+</div>
