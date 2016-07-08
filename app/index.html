@@ -2,21 +2,28 @@
 <html ng-app="myApp">
 <head>
     <meta charset="UTF-8">
-    <title>My first page angular</title>
-    <script src="../node_modules/angular/angular.js"></script>
-    <script src="../node_modules/angular-route/angular-route.js"></script>
+    <title>{{pageTitle}}</title>
+
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../node_modules/materialize-css/dist/css/materialize.css">
 </head>
 <body >
 
-    <div ng-show="loading">chargement...</div>
+    <!--div ng-show="loading">chargement...</div-->
+    <div ui-view></div>
 
-    <div ng-view></div>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="app.js" ></script>
     <script src="services/posts.js"></script>
     <script src="controllers/posts.js"></script>
     <script src="controllers/comments.js"></script>
+    <script src="services/login.js"></script>
+    <script src="controllers/login.js"></script>
+    <script src="controllers/dashboard.js"></script>
+    <script src="../node_modules/materialize-css/dist/js/materialize.js"></script>
 
 </body>
 </html>
