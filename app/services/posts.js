@@ -17,8 +17,8 @@ myApp.factory('PostsFactory',function ($http, $q, $timeout) {
                         $timeout(function () {
                             deferred.resolve(factory.posts);
                         },2000);
-                    }).error(function () {
-                    deferred.reject('erreur lors de la recuperation');
+                    }).error(function (response) {
+                    deferred.reject(response);
                 });
             }
             return deferred.promise;

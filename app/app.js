@@ -1,9 +1,9 @@
 
-var myApp = angular.module('myApp',['ui.router']);
+var myApp = angular.module('myApp',['ui.router','ngCookies']);
 myApp.config(['$stateProvider',function($stateProvider){
     $stateProvider
         .state('login',{
-            url :"",
+            url :"/",
             controller : "LoginCtrl",
             templateUrl: 'views/login.html'
         })
