@@ -1,0 +1,14 @@
+<div ng-include="'views/layout/header.html'"></div>
+<div ng-include="'views/layout/navigation.html'"></div>
+
+
+<!--div ng-repeat="customer in customers">
+    <h1>{{customer.Name}}</h1>
+
+    <p>{{customer.FirstName}} </p>
+
+</div-->
+
+<div>
+    <div id="grid1" ui-grid="{ data: customers }" class="grid"></div>
+</div>

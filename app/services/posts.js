@@ -1,5 +1,5 @@
 /**
- * Created by jarys on 07/07/2016.
+ * Created by jary on 07/07/2016.
  */
 myApp.factory('PostsFactory',function ($http, $q, $timeout) {
 
@@ -13,13 +13,14 @@ myApp.factory('PostsFactory',function ($http, $q, $timeout) {
             else{
                 $http.get('posts.json')
                     .success(function (data) {
-                        factory.posts = data;
+                        factory.posts = angular.fromJson(data);
                         $timeout(function () {
                             deferred.resolve(factory.posts);
                         },2000);
-                    }).error(function (response) {
-                    deferred.reject(response);
-                });
+                    })
+                    .error(function (response) {
+                        deferred.reject(response);
+                    });
             }
             return deferred.promise;
 

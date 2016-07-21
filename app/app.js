@@ -1,5 +1,5 @@
 
-var myApp = angular.module('myApp',['ui.router','ngCookies']);
+var myApp = angular.module('myApp',['ui.router','ngCookies','ui.grid']);
 myApp.config(['$stateProvider',function($stateProvider){
     $stateProvider
         .state('login',{
@@ -11,6 +11,11 @@ myApp.config(['$stateProvider',function($stateProvider){
             url : "/dashboard",
             controller : "DashboardCtrl",
             templateUrl: "views/dashboard.html"
+        })
+        .state('customers',{
+            url : "/customers",
+            controller : "CustomersCtrl",
+            templateUrl: "views/customers.html"
         });
 
         /*

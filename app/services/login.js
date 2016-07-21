@@ -1,5 +1,5 @@
 /**
- * Created by jarys on 07/07/2016.
+ * Created by jary on 07/07/2016.
  */
 
 myApp.factory('LoginFactory', function ($http, $q, $cookies) {
