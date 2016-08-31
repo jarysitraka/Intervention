@@ -1,0 +1,129 @@
+<div ng-include="'views/layout/header.html'"></div>
+<div ng-include="'views/layout/navigation.html'"></div>
+
+
+    <h3>{{intervention.Customer.FirstName}} | Intervention {{intervention.Number}} </h3>
+
+    <div class="divider onglet"></div>
+
+    <div class="row">
+        <div class="col s4">
+            <div class="row">
+                <input type="checkbox" class="filled-in" id="done" />
+                <label for="done">Done</label>
+            </div>
+
+            <div class="row">
+                <div class="col s4">
+                    <h5>Number</h5>
+                    <div class="divider"></div>
+                    <p>{{intervention.Number}}</p>
+                </div>
+
+                <div class="col s4">
+                    <h5>Type</h5>
+                    <div class="divider"></div>
+                    <p>{{intervention.Model.Name}}</p>
+                </div>
+
+                <div class="col s4">
+                    <h5>Skills</h5>
+                    <div class="divider"></div>
+                    <p>*</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s6">
+                    <h5>Type</h5>
+                    <div class="divider"></div>
+                    <a href="#">{{intervention.Model.Name}}<i class="tiny material-icons">open_in_new</i></a>
+                </div>
+
+                <div class="col s6">
+                    <h5>Contact</h5>
+                    <div class="divider"></div>
+                    <p>{{intervention.Customer.FullName}}</p>
+                    <p><i class="tiny material-icons">call</i> {{intervention.Customer.Phone}}</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <h5>Description</h5>
+                <div class="divider"></div>
+                <p>{{intervention.Model.Description}}</p>
+            </div>
+
+            <div class="row">
+                <h5>Further information</h5>
+                <div class="input-field">
+                    <input value="Additionnal attributes" id="furtherinformaton" type="text" class="validate">
+                </div>
+            </div>
+
+            <div class="row">
+                <h5>Attachments</h5>
+            </div>
+        </div>
+
+        <div class="col s1">&nbsp;</div>
+
+        <div class="col s7">
+            <div class="row">
+                <nav>
+                    <div class="nav-wrapper">
+                        <div class="col s12">
+                            <h5>Planning</h5>
+                        </div>
+                    </div>
+                </nav>
+
+                <table class="responsive-table">
+                    <thead>
+                    <tr>
+                        <th data-field="team">Team</th>
+                        <th data-field="planned">Planned</th>
+                        <th data-field="tenanatao">Tena natao</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td><i class="tiny material-icons">supervisor_account</i> {{intervention.Group.Name}}</td>
+                        <td><i class="tiny material-icons">schedule</i> {{intervention.StartDate | date:'yyyy-MMM-dd'}} to {{intervention.EndDate | date:'yyyy-MMM-dd'}} </td>
+                        <td><i class="tiny material-icons">today</i> {{intervention.StartDate | date:'yyyy-MMM-dd'}} to {{intervention.EndDate | date:'yyyy-MMM-dd'}} </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row">
+                <div class="col s4 m5">
+                    <div class="card indigo darken-4">
+                        <div class="card-content white-text">
+                            <p>Luana Karen ANDRIAMAMONJY (responsible)</p>
+                            <p><i class="tiny material-icons">call</i> 033 33 106 57</p>
+                            <p><i class="tiny material-icons">email</i> jarysitra@outlook.com</p>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="row">
+                        <h5>Create by</h5>
+                        <p><i class="tiny material-icons">perm_identity</i> Jary Sitraka RAZAFINDRAKO</p>
+                    </div>
+
+                    <div class="row">
+                        <h5>Duration</h5>
+                        <p><i class="tiny material-icons">av_timer</i> </p>
+                    </div>
+                </div>
+
+                <div class="col s8 m7">
+                    <img src="http://placehold.it/500x550&text=Map" class="responsive-img">
+                </div>
+            </div>
+        </div>
+    </div>
+

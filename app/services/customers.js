@@ -22,6 +22,23 @@ myApp.factory('CustomersFactory',function ($http, $q) {
                     });
             }
             return deferred.promise;
+        },
+        getCustomer: function (id){
+            var deferred = $q.defer();
+            var customer = {};
+            var customers = factory.getCustomers().then(function (customers) {
+                angular.forEach(customers, function(value, key) {
+                    if(value.Id==id){
+                        customer = value;
+                    }
+                });
+                deferred.resolve(customer);
+                
+            }, function (msg) {
+                deferred.reject(msg);
+            });
+
+            return deferred.promise;
         }
     };
     return factory;

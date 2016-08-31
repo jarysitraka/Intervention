@@ -1,0 +1,83 @@
+<div ng-include="'views/layout/header.html'"></div>
+<div ng-include="'views/layout/navigation.html'"></div>
+
+    <div class="row">
+        <h3><small>{{customer.FullName}}</small></h3>
+
+        <div class="divider"></div>
+    </div>
+
+    <section>
+    <div class="row">
+        <div class="col s5 onglet">
+            <ul class="tabs">
+                <li class="tab col s1"><a class="active" href="#details">Details</a></li>
+                <li class="tab col s1"><a href="#locations">Locations</a></li>
+                <li class="tab col s1"><a href="#devices">Devices</a></li>
+                <li class="tab col s1"><a href="#projects">Projects</a></li>
+                <li class="tab col s1"><a href="#factures">Factures</a></li>
+            </ul>
+        </div>
+
+        <div id="details" class="col s12">
+            <div class="col s3">
+                <div class="row">
+                    <h5>Principal adress <a class="btn-floating btn waves-effect waves-light blue darken-1 right"><i class="material-icons small">mode_edit</i></a></h5>
+                    <div class="divider"></div>
+                    <p><i class="material-icons tiny">location_on</i> {{customer.Adress}}</p>
+                </div>
+
+                <div class="row">
+                    <h5>Contact</h5>
+                    <div class="divider"></div>
+                    <p><i class="material-icons tiny">email</i> {{customer.Email}}</p>
+                    <p><i class="material-icons tiny">call</i> {{customer.Phone}}</p>
+                    <p><i class="material-icons tiny">call</i> {{customer.Mobile}}</p>
+
+                </div>
+
+                <div class="row">
+                    <h5>Signature</h5>
+                    <div class="divider"></div>
+                    <p><img class="materialboxed center-align" width="200" src="http://placehold.it/200x120&text=Signature"></p>
+                </div>
+            </div>
+
+            <div class="col s9">
+                <table class="responsive-table">
+                    <thead>
+                    <tr>
+                        <th data-field="interventions">Interventions</th>
+                        <th data-field="status">Status</th>
+                        <th data-field="location">Location</th>
+                        <th data-field="project">Project</th>
+                        <th data-field="device">Device</th>
+                        <th data-field="technicians">Technicians</th>
+                        <th data-field="date">Start Date</th>
+                        <th data-field="date">End Date</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr ng-repeat="intervention in interventionsCustomer">
+                        <td><a ui-sref="interventionDetails({id: {{intervention.Id}} })">{{intervention.Model.Name}}</a></td>
+                        <td></td>
+                        <td>{{customer.Adress}}</td>
+                        <td>{{intervention.Project.Name}}</td>
+                        <td>{{intervention.Model.Device.Name}}</td>
+                        <td>{{intervention.Group.Name}}</td>
+                        <td>{{intervention.StartDate | date:'yyyy-MMM-dd'}}</td>
+                        <td>{{intervention.EndDate | date:'yyyy-MMM-dd'}}</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="locations" class="col s12"></div>
+        <div id="devices" class="col s12"></div>
+        <div id="projects" class="col s12"></div>
+        <div id="factures" class="col s12"></div>
+    </div>
+</section>

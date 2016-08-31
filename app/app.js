@@ -1,4 +1,3 @@
-
 var myApp = angular.module('myApp',['ui.router','ngCookies','ngMaterial']);
 myApp.config(['$stateProvider',function($stateProvider){
     $stateProvider
@@ -16,6 +15,16 @@ myApp.config(['$stateProvider',function($stateProvider){
             url : "/customers",
             controller : "CustomersCtrl",
             templateUrl: "views/customers.html"
+        })
+        .state('customerDetails',{
+            url :"/customers/:id",
+            controller:"CustomersDetailsCtrl",
+            templateUrl:"views/customersDetail.html"
+        })
+        .state('interventionDetails',{
+            url :"/intervention/:id",
+            controller:"InterventionDetailsCtrl",
+            templateUrl:"views/interventionDetail.html"
         });
 
         /*
