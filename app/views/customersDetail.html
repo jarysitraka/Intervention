@@ -1,23 +1,40 @@
 <div ng-include="'views/layout/header.html'"></div>
 <div ng-include="'views/layout/navigation.html'"></div>
+<style>
+    .pad{
+        margin-top: 20px;
+    }
+    .mad{
+        margin-top: 30px;
+    }
 
+    #mapid { height:500px; border:1px solid red; }
+</style>
     <div class="row">
-        <h3><small>{{customer.FullName}}</small></h3>
-
-        <div class="divider"></div>
+        <div class="col s3">
+            <h4><small>{{customer.FullName}}</small></h4>
+        </div>
+        <div class="col s3 mad ">
+            <a class=" btn waves-effect waves-light green darken-1 tooltipped " data-position="bottom" data-delay="50" data-tooltip="Edit Infromations"><i class="medium material-icons ">mode_edit</i></a>
+            <a class=" btn waves-effect waves-light red darken-1 tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete customer"><i class="medium material-icons ">delete</i></a>
+            <a class=" btn waves-effect waves-light blue darken-1 tooltipped " data-position="bottom" data-delay="50" data-tooltip="Add Intervention"><i class="medium material-icons">insert_chart</i></a>
+        </div>
+        <div class="col s6 pad">
+           <div class="center-align">
+                <ul class="tabs  ">
+                    <li class="tab col s1"><a class="active" href="#intervention">Interventions</a></li>
+                    <li class="tab col s1"><a href="#locations">Locations</a></li>
+                    <li class="tab col s1"><a href="#devices">Devices</a></li>
+                    <li class="tab col s1"><a href="#projects">Projects</a></li>
+                    <li class="tab col s1 disabled"><a href="#factures">Factures</a></li>
+                </ul>
+           </div>
+        </div>
     </div>
 
     <section>
     <div class="row">
-        <div class="col s5 onglet">
-            <ul class="tabs">
-                <li class="tab col s1"><a class="active" href="#details">Details</a></li>
-                <li class="tab col s1"><a href="#locations">Locations</a></li>
-                <li class="tab col s1"><a href="#devices">Devices</a></li>
-                <li class="tab col s1"><a href="#projects">Projects</a></li>
-                <li class="tab col s1"><a href="#factures">Factures</a></li>
-            </ul>
-        </div>
+
 
         <div id="details" class="col s12">
             <div class="col s3">
@@ -30,20 +47,19 @@
                 <div class="row">
                     <h5>Contact</h5>
                     <div class="divider"></div>
-                    <p><i class="material-icons tiny">email</i> {{customer.Email}}</p>
+                    <p><i class="material-icons tiny ">email</i> {{customer.Email}}</p>
                     <p><i class="material-icons tiny">call</i> {{customer.Phone}}</p>
                     <p><i class="material-icons tiny">call</i> {{customer.Mobile}}</p>
 
                 </div>
 
                 <div class="row">
-                    <h5>Signature</h5>
                     <div class="divider"></div>
                     <p><img class="materialboxed center-align" width="200" src="http://placehold.it/200x120&text=Signature"></p>
                 </div>
             </div>
 
-            <div class="col s9">
+            <div id="intervention" class="col s9">
                 <table class="responsive-table">
                     <thead>
                     <tr>
@@ -73,11 +89,52 @@
                     </tbody>
                 </table>
             </div>
+            <input id="lala" type="hidden" ng-model=customer />
+            <div id="locations" class="col s9">
+                <div id="mapid"></div>
+                <script>
+
+                    //var a  = $('#lala');
+                    //console.log(a);
+                   /* var scope = angular.element($("body")).scope();
+                    console.log(scope.$$childHead);*/
+
+
+
+                    var map = L.map('mapid').setView([-18.980595, 47.539415], 13);
+
+                    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    }).addTo(map);
+
+
+                    L.marker([-18.980595, 47.539415]).addTo(map)
+                            .bindPopup('{{customer.Adress}}')
+                            .openPopup();
+                </script>
+
+            </div>
+
+            <div id="devices" class=" container col s9">
+
+            </div>
+
+            <div id="projects" class="col s9">
+
+            </div>
+
+            <div id="factures" class="col s9">
+
+            </div>
+
         </div>
 
-        <div id="locations" class="col s12"></div>
-        <div id="devices" class="col s12"></div>
-        <div id="projects" class="col s12"></div>
-        <div id="factures" class="col s12"></div>
     </div>
 </section>
+<script>
+    $(document).ready(function(){
+        $('ul.tabs').tabs();
+        $('.tooltipped').tooltip({delay: 50});
+    });
+
+</script>

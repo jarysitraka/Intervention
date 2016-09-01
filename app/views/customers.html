@@ -1,23 +1,21 @@
 <div ng-include="'views/layout/header.html'"></div>
 <div ng-include="'views/layout/navigation.html'"></div>
 
-<strong>Data Length: {{customers.length}}</strong>
 
 <div class="row">
     <div class="container ">
-
-
             <div class="row">
-                <div class="input-field col s6">
+                <div class="input-field col s4">
                     <i class="material-icons prefix">search</i>
                     <input id="icon_prefix" ng-model="searchText" class="validate">
-
                 </div>
+
+
             </div>
-        <div class="card grey lighten-1">
-            <table class=" striped responsive-table">
+            <div class="card grey lighten-1">
+                <table class=" striped responsive-table">
                 <thead>
-                    <tr>
+                    <tr class="blue-grey lighten-5">
                         <th data-field="name">Name</th>
                         <th data-field="name">Adress</th>
                         <th data-field="phone">Phone</th>
@@ -29,18 +27,23 @@
                 <tbody>
 
                     <tr ng-repeat="customer in customers | filter :searchText">
-
-                        <td><a ui-sref="customerDetails({id: {{customer.Id}} })">{{customer.Name}}</a></td>
+                        <td ><a  ui-sref="customerDetails({id: {{customer.Id}} })" >{{customer.FullName}}</a></td>
                         <td>{{customer.Adress}}</td>
                         <td>{{customer.Phone}}</td>
                         <td>{{customer.Mobile}}</td>
                         <td>{{customer.Email}}</td>
-
                     </tr>
 
                 </tbody>
             </table>
-        </div>
-
+            </div>
+            <div class="input-field center  ">
+                <ul class="pagination">
+                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                    <li class="active grey lighten-1"><a href="#!">1</a></li>
+                    <li class="waves-effect"><a href="#!">2</a></li>
+                    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                </ul>
+            </div>
     </div>
 </div>
