@@ -1,33 +1,37 @@
 <div ng-include="'views/layout/header.html'"></div>
 <div ng-include="'views/layout/navigation.html'"></div>
+<style>
+
+    .pad{
+        margin-left: 20px;
+    }
 
 
-    <h3>{{intervention.Customer.FirstName}} | Intervention {{intervention.Number}} </h3>
+    #mapid { height:400px; border:1px solid #fdfdff; }
+</style>
+
+    <h4 class="teal-text"><small>{{intervention.Remarks}} | {{intervention.Customer.FirstName}} </small></h4>
 
     <div class="divider onglet"></div>
 
     <div class="row">
-        <div class="col s4 ">
-            <div class="row">
-                <input type="checkbox" class="filled-in" id="done" />
-                <label for="done">Done</label>
-            </div>
+        <div class="col s4 white">
 
             <div class="row">
                 <div class="col s4">
-                    <h5>Number</h5>
+                    <h5><small><b>Number</b></small></h5>
                     <div class="divider"></div>
                     <p>{{intervention.Number}}</p>
                 </div>
 
                 <div class="col s4">
-                    <h5>Type</h5>
+                    <h5><small><b>Type</b></small></h5>
                     <div class="divider"></div>
                     <p>{{intervention.Model.Name}}</p>
                 </div>
 
                 <div class="col s4">
-                    <h5>Skills</h5>
+                    <h5><small><b>Skills</b></small></h5>
                     <div class="divider"></div>
                     <p>*</p>
                 </div>
@@ -35,13 +39,13 @@
 
             <div class="row">
                 <div class="col s6">
-                    <h5>Type</h5>
+                    <h5><small><b>Site</b></small></h5>
                     <div class="divider"></div>
-                    <a href="#">{{intervention.Model.Name}}<i class="tiny material-icons">open_in_new</i></a>
+                    <p>{{intervention.Customer.Adress}}</p>
                 </div>
 
                 <div class="col s6">
-                    <h5>Contact</h5>
+                    <h5><small><b>Contact</b></small></h5>
                     <div class="divider"></div>
                     <p>{{intervention.Customer.FullName}}</p>
                     <p><i class="tiny material-icons">call</i> {{intervention.Customer.Phone}}</p>
@@ -49,41 +53,28 @@
             </div>
 
             <div class="row">
-                <h5>Description</h5>
-                <div class="divider"></div>
+                <h5><small><b>Description</b></small></h5>
                 <p>{{intervention.Model.Description}}</p>
             </div>
 
             <div class="row">
-                <h5>Further information</h5>
-                <div class="input-field">
-                    <input value="Additionnal attributes" id="furtherinformaton" type="text" class="validate">
-                </div>
+                <h5><small><b>Further information</b></small></h5>
+                    <p> Additionnal attributes</p>
             </div>
 
-            <div class="row">
-                <h5>Attachments</h5>
-            </div>
+
         </div>
 
         <div class="col s1">&nbsp;</div>
 
-        <div class="col s7">
+        <div class="col s7 white">
             <div class="row">
-                <nav>
-                    <div class="nav-wrapper black">
-                        <div class="col s12">
-                            <h5>Planning</h5>
-                        </div>
-                    </div>
-                </nav>
-
                 <table class="responsive-table">
                     <thead>
                     <tr>
-                        <th data-field="team">Team</th>
-                        <th data-field="planned">Planned</th>
-                        <th data-field="tenanatao">Tena natao</th>
+                        <th >Team</th>
+                        <th >Planned</th>
+                        <th >Duration</th>
                     </tr>
                     </thead>
 
@@ -97,9 +88,20 @@
                 </table>
             </div>
 
-            <div class="row">
+            <div class="row ">
                 <div class="col s4 m5">
-                    <div class="card indigo darken-4">
+
+                    <div class="row">
+                        <h5><small><b>Created by</b></small></h5>
+                        <p><i class="tiny material-icons">perm_identity</i> Jary Sitraka RAZAFINDRAKO</p>
+                    </div>
+
+                    <div class="row">
+                        <h5><small><b>Attachments</b></small></h5>
+                    </div>
+
+                    <div class="divider"></div>
+                    <div class="card black">
                         <div class="card-content white-text">
                             <p>Luana Karen ANDRIAMAMONJY (responsible)</p>
                             <p><i class="tiny material-icons">call</i> 033 33 106 57</p>
@@ -107,21 +109,30 @@
                         </div>
                     </div>
 
-                    <div class="divider"></div>
-
-                    <div class="row">
-                        <h5>Create by</h5>
-                        <p><i class="tiny material-icons">perm_identity</i> Jary Sitraka RAZAFINDRAKO</p>
-                    </div>
-
-                    <div class="row">
-                        <h5>Duration</h5>
-                        <p><i class="tiny material-icons">av_timer</i> </p>
-                    </div>
                 </div>
 
                 <div class="col s8 m7">
-                    <img src="http://placehold.it/500x550&text=Map" class="responsive-img">
+                    <div id="mapid"></div>
+                    <script>
+
+                        //var a  = $('#lala');
+                        //console.log(a);
+                        /* var scope = angular.element($("body")).scope();
+                         console.log(scope.$$childHead);*/
+
+
+
+                        var map = L.map('mapid').setView([-18.980595, 47.539415], 13);
+
+                        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        }).addTo(map);
+
+
+                        L.marker([-18.980595, 47.539415]).addTo(map)
+                                .bindPopup('{{intervention.Customer.Adress}}')
+                                .openPopup();
+                    </script>
                 </div>
             </div>
         </div>
