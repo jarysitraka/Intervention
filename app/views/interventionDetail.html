@@ -3,139 +3,128 @@
 <style>
 
     .pad{
-        margin-left: 20px;
+        margin-top: 20px;
+    }
+    .mad{
+        margin-top: 30px;
     }
 
-
-    #mapid { height:400px; border:1px solid #fdfdff; }
+    #mapid { height:400px; border:1px solid red; }
 </style>
 
-    <h4 class="teal-text"><small>{{intervention.Remarks}} | {{intervention.Customer.FirstName}} </small></h4>
-
-    <div class="divider onglet"></div>
 
     <div class="row">
-        <div class="col s4 white">
-
-            <div class="row">
-                <div class="col s4">
-                    <h5><small><b>Number</b></small></h5>
-                    <div class="divider"></div>
-                    <p>{{intervention.Number}}</p>
-                </div>
-
-                <div class="col s4">
-                    <h5><small><b>Type</b></small></h5>
-                    <div class="divider"></div>
-                    <p>{{intervention.Model.Name}}</p>
-                </div>
-
-                <div class="col s4">
-                    <h5><small><b>Skills</b></small></h5>
-                    <div class="divider"></div>
-                    <p>*</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col s6">
-                    <h5><small><b>Site</b></small></h5>
-                    <div class="divider"></div>
-                    <p>{{intervention.Customer.Adress}}</p>
-                </div>
-
-                <div class="col s6">
-                    <h5><small><b>Contact</b></small></h5>
-                    <div class="divider"></div>
-                    <p>{{intervention.Customer.FullName}}</p>
-                    <p><i class="tiny material-icons">call</i> {{intervention.Customer.Phone}}</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <h5><small><b>Description</b></small></h5>
-                <p>{{intervention.Model.Description}}</p>
-            </div>
-
-            <div class="row">
-                <h5><small><b>Further information</b></small></h5>
-                    <p> Additionnal attributes</p>
-            </div>
-
-
+        <div class="col s3">
+            <h4 class="teal-text"><small>{{intervention.Remarks}}</small></h4>
         </div>
-
-        <div class="col s1">&nbsp;</div>
-
-        <div class="col s7 white">
-            <div class="row">
-                <table class="responsive-table">
-                    <thead>
-                    <tr>
-                        <th >Team</th>
-                        <th >Planned</th>
-                        <th >Duration</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    <tr>
-                        <td><i class="tiny material-icons">supervisor_account</i> {{intervention.Group.Name}}</td>
-                        <td><i class="tiny material-icons">schedule</i> {{intervention.StartDate | date:'yyyy-MMM-dd'}} to {{intervention.EndDate | date:'yyyy-MMM-dd'}} </td>
-                        <td><i class="tiny material-icons">today</i> {{intervention.StartDate | date:'yyyy-MMM-dd'}} to {{intervention.EndDate | date:'yyyy-MMM-dd'}} </td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="row ">
-                <div class="col s4 m5">
-
-                    <div class="row">
-                        <h5><small><b>Created by</b></small></h5>
-                        <p><i class="tiny material-icons">perm_identity</i> Jary Sitraka RAZAFINDRAKO</p>
-                    </div>
-
-                    <div class="row">
-                        <h5><small><b>Attachments</b></small></h5>
-                    </div>
-
-                    <div class="divider"></div>
-                    <div class="card black">
-                        <div class="card-content white-text">
-                            <p>Luana Karen ANDRIAMAMONJY (responsible)</p>
-                            <p><i class="tiny material-icons">call</i> 033 33 106 57</p>
-                            <p><i class="tiny material-icons">email</i> jarysitra@outlook.com</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col s8 m7">
-                    <div id="mapid"></div>
-                    <script>
-
-                        //var a  = $('#lala');
-                        //console.log(a);
-                        /* var scope = angular.element($("body")).scope();
-                         console.log(scope.$$childHead);*/
-
-
-
-                        var map = L.map('mapid').setView([-18.980595, 47.539415], 13);
-
-                        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-                            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                        }).addTo(map);
-
-
-                        L.marker([-18.980595, 47.539415]).addTo(map)
-                                .bindPopup('{{intervention.Customer.Adress}}')
-                                .openPopup();
-                    </script>
-                </div>
+        <div class="col s3 mad ">
+            <a class=" btn waves-effect waves-light teal lighten-2 tooltipped " data-position="bottom" data-delay="50" data-tooltip="Edit Infromations"><i class="medium material-icons ">mode_edit</i></a>
+            <a class=" btn waves-effect waves-light red lighten-2 tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete"><i class="medium material-icons ">delete</i></a>
+        </div>
+        <div class="col s6 pad">
+            <div class="center-align">
+                <ul class="tabs">
+                    <li class="tab col s1"><a href="#groups">Groups</a></li>
+                    <li class="tab col s1"><a href="#project">Project</a></li>
+                    <li class="tab col s1"><a href="#location">Location</a></li>
+                </ul>
             </div>
         </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="row">
+
+        <div>
+
+            <div class="col s5 ">
+
+                <div class="row">
+                    <div class="col s4">
+                        <h5><small><b>Number</b></small></h5>
+                        <div class="divider"></div>
+                        <p>{{intervention.Number}}</p>
+                    </div>
+                    <div class="col s4">
+                        <h5><small><b>Type</b></small></h5>
+                        <div class="divider"></div>
+                        <p>{{intervention.Remarks}}</p>
+                    </div>
+                    <div class="col s4">
+                        <h5><small><b>Model</b></small></h5>
+                        <div class="divider"></div>
+                        <p>{{intervention.Model.Name}}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s6">
+                        <h5><small><b>Site</b></small></h5>
+                        <div class="divider"></div>
+                        <p>{{intervention.Customer.Adress}}</p>
+                    </div>
+
+                    <div class="col s6">
+                        <h5><small><b>Contact</b></small></h5>
+                        <div class="divider"></div>
+                        <p>{{intervention.Customer.FullName}}</p>
+                        <p><i class="tiny material-icons">call</i> {{intervention.Customer.Phone}}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <h5><small><b>Description</b></small></h5>
+                    <p>{{intervention.Model.Description}}</p>
+                </div>
+
+                <div class="row">
+                    <h5><small><b>Further information</b></small></h5>
+                        <p> Additionnal attributes</p>
+                </div>
+
+
+            </div>
+
+            <div id ="groups" class="col s7 ">
+
+
+
+                        <h5 class="center">{{interventionGroup.Name}}</h5>
+                        <p class="center">{{interventionGroup.Description}}</p>
+
+
+
+                <div class="card grey lighten-3 col s4 offset-s1" ng-repeat="user in interventionGroup.Users">
+                    <div class="card-content black-text">
+                        <h5><small><span >{{user.FullName}} | {{user.Type.Type}}</span></small></h5>
+                        <p><i class="tiny material-icons">call</i> {{user.Phone}}</p>
+                        <ul class="collection with-header">
+                            <li class="collection-header center"><p>skills</p></li>
+                            <li class="collection-item" ng-repeat="skill in user.Skills">{{skill.Title}}</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div id ="project" class="col s8 ">
+            </div>
+
+            <div id ="location" class="col s8 ">
+            </div>
+
+
+         </div>
 
     </div>
 
+<script>
+
+    $(document).ready(function(){
+        $('ul.tabs').tabs();
+        $('.tooltipped').tooltip({delay: 50});
+    });
+
+</script>

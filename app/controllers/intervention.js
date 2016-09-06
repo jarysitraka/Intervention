@@ -18,9 +18,8 @@ myApp.controller('InterventionDetailsCtrl',function ($scope, $rootScope, Interve
         $scope.$parent.pageTitle="Intervention.detail";//à mettre sur tous les controllers
         $scope.$parent.cookieUsername=$cookies.getObject('connected');//à mettre sur tous les controllers
         $scope.intervention=intervention[0];
-
-
-
+        $scope.interventionGroup =$scope.intervention.Group;
+        
         //console.log("reo e"+customer.Interventions[0].Remarks);
         Materialize.toast("mety", 3000, 'green');
         //Materialize.toast("liste bien recuper", 3000, 'blue')

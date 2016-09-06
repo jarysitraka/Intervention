@@ -37,6 +37,8 @@
         </div>
     </div>
 
+    <div class="divider"></div>
+
     <section>
     <div class="row">
 
@@ -72,7 +74,6 @@
                         <th data-field="status">Status</th>
                         <th data-field="location">Location</th>
                         <th data-field="project">Project</th>
-                        <th data-field="device">Device</th>
                         <th data-field="technicians">Technicians</th>
                         <th data-field="date">Start Date</th>
                         <th data-field="date">End Date</th>
@@ -85,7 +86,6 @@
                         <td class="new badge">4</td>
                         <td>{{customer.Adress}}</td>
                         <td>{{intervention.Project.Name}}</td>
-                        <td>{{intervention.Model.Device.Name}}</td>
                         <td>{{intervention.Group.Name}}</td>
                         <td>{{intervention.StartDate | date:'yyyy-MMM-dd'}}</td>
                         <td>{{intervention.EndDate | date:'yyyy-MMM-dd'}}</td>
@@ -128,6 +128,7 @@
                         <th>Name</th>
                         <th>Serial</th>
                         <th>Imei</th>
+                        <th>Last test</th>
                         <th>Others Informations</th>
                         <th></th>
 
@@ -139,6 +140,7 @@
                         <td>{{device.Name}}</td>
                         <td>{{device.Serial}}</td>
                         <td>{{device.Imei}}</td>
+                        <td>{{device.Tests[0].Remarks}}</td>
                         <td>
                             <span class="chip" ng-repeat="add in device.AdditionalAttributes">{{add.Name}}: {{add.Value}}</span>
                         </td>
