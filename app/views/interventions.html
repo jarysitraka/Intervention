@@ -1,0 +1,59 @@
+<div ng-include="'views/layout/header.html'"></div>
+<div ng-include="'views/layout/navigation.html'"></div>
+
+
+<div class="progress" ng-show="loading">
+    <div class="indeterminate"></div>
+</div>
+
+<div ng-hide="loading">
+
+    <div class="row" >
+
+
+        <div class="row">
+            <div class="input-field col s4">
+                <i class="material-icons prefix">search</i>
+                <input id="icon_prefix" ng-model="searchText" class="validate">
+            </div>
+        </div>
+        <div class="card">
+            <table class=" striped responsive-table">
+                <thead>
+                <tr >
+                    <th >Name</th>
+                    <th >Status</th>
+                    <th >Customer</th>
+                    <th >Project</th>
+                    <th >Start Date</th>
+                    <th >End Date</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                <tr ng-repeat="intervention in interventions | filter :searchText">
+                    <td><a ui-sref="interventionDetails({id: {{intervention.Id}} })">{{intervention.Remarks}}</a></td>
+                    <td>In progress</td>
+                    <td><a ui-sref="customerDetails({id: {{intervention.Customer.Id}} })">{{intervention.Customer.FullName}}</a></td>
+                    <td><a ui-sref="projectDetails({id: {{intervention.Project.Id}} })">{{intervention.Project.Name}}</a></td>
+                    <td>{{intervention.StartDate | date:'yyyy-MMM-dd'}}</td>
+                    <td>{{intervention.EndDate | date:'yyyy-MMM-dd'}}</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="input-field center  ">
+            <ul class="pagination">
+                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                <li class="active grey lighten-1"><a href="#!">1</a></li>
+                <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+

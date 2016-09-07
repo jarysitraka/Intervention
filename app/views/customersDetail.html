@@ -172,7 +172,7 @@
 
                     <tbody>
                     <tr ng-repeat="project in projectsCustomer">
-                        <td>{{project.Name}}</td>
+                        <td><a ui-sref="projectDetails({id: {{project.Id}} })">{{project.Name}}</a></td>
                         <td>{{project.Description}}</td>
                         <td>{{project.startDate}}</td>
                         <td>{{project.EndDate}}</td>

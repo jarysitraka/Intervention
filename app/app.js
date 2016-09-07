@@ -21,6 +21,11 @@ myApp.config(['$stateProvider',function($stateProvider){
             controller:"CustomersDetailsCtrl",
             templateUrl:"views/customersDetail.html"
         })
+        .state('interventions',{
+            url : "/interventions",
+            controller : "InterventionCtrl",
+            templateUrl: "views/interventions.html"
+        })
         .state('interventionDetails',{
             url :"/intervention/:id",
             controller:"InterventionDetailsCtrl",
