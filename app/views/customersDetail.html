@@ -85,7 +85,7 @@
                         <td><a ui-sref="interventionDetails({id: {{intervention.Id}} })">{{intervention.Model.Name}}</a></td>
                         <td class="new badge">4</td>
                         <td>{{customer.Adress}}</td>
-                        <td>{{intervention.Project.Name}}</td>
+                        <td><a ui-sref="projectDetails({id: {{intervention.Project.Id}} })" >{{intervention.Project.Name}}</a></td>
                         <td>{{intervention.Group.Name}}</td>
                         <td>{{intervention.StartDate | date:'yyyy-MMM-dd'}}</td>
                         <td>{{intervention.EndDate | date:'yyyy-MMM-dd'}}</td>

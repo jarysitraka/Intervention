@@ -17,7 +17,7 @@ myApp.config(['$stateProvider',function($stateProvider){
             templateUrl: "views/customers.html"
         })
         .state('customerDetails',{
-            url :"/customers/:id",
+            url :"/customer/:id",
             controller:"CustomersDetailsCtrl",
             templateUrl:"views/customersDetail.html"
         })
@@ -25,13 +25,16 @@ myApp.config(['$stateProvider',function($stateProvider){
             url :"/intervention/:id",
             controller:"InterventionDetailsCtrl",
             templateUrl:"views/interventionDetail.html"
+        })
+        .state('projects',{
+            url : "/projects",
+            controller : "ProjectsCtrl",
+            templateUrl: "views/projects.html"
+        })
+        .state('projectDetails',{
+            url :"/project/:id",
+            controller:"ProjectsDetailsCtrl",
+            templateUrl:"views/projectDetail.html"
         });
-
-        /*
-            .when('/',{templateUrl: 'views/home.html', controller: 'PostsCtrl'})
-            .when('/comments/:id',{templateUrl: 'views/comments.html', controller : 'CommentsCtrl'})
-            .when('/login',{templateUrl: 'views/login.html', controller : 'LoginCtrl'})
-            .otherwise({redirectTo : '/'});
-        */
 
 }]);

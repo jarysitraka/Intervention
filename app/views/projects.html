@@ -1,0 +1,53 @@
+<div ng-include="'views/layout/header.html'"></div>
+<div ng-include="'views/layout/navigation.html'"></div>
+
+<div class="progress" ng-show="loading">
+    <div class="indeterminate"></div>
+</div>
+
+<div ng-hide="loading">
+    <div class="row" >
+
+
+        <div class="row">
+            <div class="input-field col s4">
+                <i class="material-icons prefix">search</i>
+                <input id="icon_prefix" ng-model="searchText" class="validate">
+            </div>
+        </div>
+        <div class="card">
+            <table class=" striped responsive-table">
+                <thead>
+                <tr>
+                    <th data-field="name">Name</th>
+                    <th data-field="name">Description</th>
+                    <th data-field="phone">Start Date</th>
+                    <th data-field="phone">Estimated End Date</th>
+                    <th data-field="email">Interventions</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                <tr ng-repeat="project in projects | filter :searchText">
+                    <td ><a ui-sref="projectDetails({id: {{project.Id}} })" >{{project.Name}}</a></td>
+                    <td>{{project.Description}}</td>
+                    <td>{{project.StartDate | date:'yyyy-MMM-dd'}}</td>
+                    <td>{{project.EndDate | date:'yyyy-MMM-dd'}}</td>
+                    <td>{{project.Interventions.length}}</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="input-field center  ">
+            <ul class="pagination">
+                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                <li class="active grey lighten-1"><a href="#!">1</a></li>
+                <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,97 @@
+<div ng-include="'views/layout/header.html'"></div>
+<div ng-include="'views/layout/navigation.html'"></div>
+
+<style>
+    .pad{
+        margin-top: 20px;
+    }
+    .mad{
+        margin-top: 30px;
+    }
+
+    #mapid { height:500px; border:1px solid red; }
+</style>
+<div class="progress" ng-show="loading">
+    <div class="indeterminate"></div>
+</div>
+
+<div ng-hide="loading">
+
+
+    <section class="">
+
+        <div class="row mad">
+
+            <div id="details" class="col s12">
+
+
+                <div class="col s4">
+                    <div class="row">
+                        <h5>{{project.Name}} <a class="btn-floating btn waves-effect waves-light blue darken-1 right"><i class="material-icons small">mode_edit</i></a></h5>
+                        <div class="divider"></div>
+                        <p> {{project.Description}}</p>
+                    </div>
+
+                    <div class="row">
+                        <h5><small>Progession</small></h5>
+                        <div class="divider"></div>
+                        <p> {{project.StartDate | date:'yyyy-MMM-dd'}} to {{project.EndDate | date:'yyyy-MMM-dd'}}</p>
+
+                        <div class="progress">
+                            <div class="determinate" style="width: 70% "></div>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="row">
+                        <h5><small>Created By</small></h5>
+                        <div class="divider"></div>
+                        <p> Jary Sitraka Razafindrakoto</p>
+
+                    </div>
+
+                </div>
+
+                <div id="interventions" class="col s8">
+                    <h5><small>Interventions in this project</small></h5>
+                    <table class="striped responsive-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Group</th>
+                            <th>Used Model</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr ng-repeat="intervention in projectInterventions">
+                            <td><a ui-sref="interventionDetails({id: {{intervention.Id}} })">{{intervention.Remarks}}</a></td>
+                            <td>{{intervention.StartDate | date:'yyyy-MMM-dd'}}</td>
+                            <td ><a  ui-sref="customerDetails({id: {{intervention.Customer.Id}} })" >{{intervention.Customer.FullName}}</a></td>
+                            <td>{{intervention.Group.Name}}</td>
+                            <td>{{intervention.Model.Name}}</td>
+                            <td>
+
+                                <a class=" btn waves-effect waves-light teal lighten-2 "><i class="large material-icons ">mode_edit</i></a>
+                                <a class=" btn waves-effect waves-light red lighten-2 "><i class="large material-icons ">delete</i></a>
+
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+</div>

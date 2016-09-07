@@ -71,7 +71,7 @@
                     <div class="col s6">
                         <h5><small><b>Client</b></small></h5>
                         <div class="divider"></div>
-                        <p>{{intervention.Customer.FullName}}</p>
+                        <p><a  ui-sref="customerDetails({id: {{intervention.Customer.Id}} })" >{{intervention.Customer.FullName}}</a></p>
                         <p><i class="tiny material-icons">call</i> {{intervention.Customer.Phone}}</p>
                     </div>
                 </div>
@@ -110,7 +110,6 @@
 
             <div id ="project" class="col s7 ">
             </div>
-
             <div id ="location" class="col s7 ">
 
                 <div id="mapid"></div>
