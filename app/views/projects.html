@@ -5,7 +5,7 @@
     <div class="indeterminate"></div>
 </div>
 
-<div ng-hide="loading">
+<div ng-hide="loading" class="container">
     <div class="row" >
 
 
@@ -23,7 +23,6 @@
                     <th data-field="name">Description</th>
                     <th data-field="phone">Start Date</th>
                     <th data-field="phone">Estimated End Date</th>
-                    <th data-field="email">Interventions</th>
                 </tr>
                 </thead>
 
@@ -34,7 +33,6 @@
                     <td>{{project.Description}}</td>
                     <td>{{project.StartDate | date:'yyyy-MMM-dd'}}</td>
                     <td>{{project.EndDate | date:'yyyy-MMM-dd'}}</td>
-                    <td>{{project.Interventions.length}}</td>
                 </tr>
 
                 </tbody>

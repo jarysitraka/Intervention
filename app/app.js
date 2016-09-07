@@ -40,6 +40,11 @@ myApp.config(['$stateProvider',function($stateProvider){
             url :"/project/:id",
             controller:"ProjectsDetailsCtrl",
             templateUrl:"views/projectDetail.html"
+        })
+        .state('technicians',{
+            url : "/technicians",
+            controller : "TechniciansCtrl",
+            templateUrl: "views/technicians.html"
         });
 
 }]);

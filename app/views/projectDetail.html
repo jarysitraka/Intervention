@@ -63,18 +63,16 @@
                             <th>Date</th>
                             <th>Customer</th>
                             <th>Group</th>
-                            <th>Used Model</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
 
                         <tbody>
                         <tr ng-repeat="intervention in projectInterventions">
-                            <td><a ui-sref="interventionDetails({id: {{intervention.Id}} })">{{intervention.Remarks}}</a></td>
+                            <td><a ui-sref="interventionDetails({id: {{intervention.Id}} })">{{intervention.Name}}</a></td>
                             <td>{{intervention.StartDate | date:'yyyy-MMM-dd'}}</td>
                             <td ><a  ui-sref="customerDetails({id: {{intervention.Customer.Id}} })" >{{intervention.Customer.FullName}}</a></td>
                             <td>{{intervention.Group.Name}}</td>
-                            <td>{{intervention.Model.Name}}</td>
                             <td>
 
                                 <a class=" btn waves-effect waves-light teal lighten-2 "><i class="large material-icons ">mode_edit</i></a>

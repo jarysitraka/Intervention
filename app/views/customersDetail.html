@@ -73,7 +73,6 @@
                         <th data-field="interventions">Interventions</th>
                         <th data-field="status">Status</th>
                         <th data-field="location">Location</th>
-                        <th data-field="project">Project</th>
                         <th data-field="technicians">Technicians</th>
                         <th data-field="date">Start Date</th>
                         <th data-field="date">End Date</th>
@@ -82,10 +81,9 @@
 
                     <tbody>
                     <tr ng-repeat="intervention in interventionsCustomer">
-                        <td><a ui-sref="interventionDetails({id: {{intervention.Id}} })">{{intervention.Model.Name}}</a></td>
+                        <td><a ui-sref="interventionDetails({id: {{intervention.Id}} })">{{intervention.Name}}</a></td>
                         <td class="new badge">4</td>
                         <td>{{customer.Adress}}</td>
-                        <td><a ui-sref="projectDetails({id: {{intervention.Project.Id}} })" >{{intervention.Project.Name}}</a></td>
                         <td>{{intervention.Group.Name}}</td>
                         <td>{{intervention.StartDate | date:'yyyy-MMM-dd'}}</td>
                         <td>{{intervention.EndDate | date:'yyyy-MMM-dd'}}</td>
@@ -174,7 +172,7 @@
                     <tr ng-repeat="project in projectsCustomer">
                         <td><a ui-sref="projectDetails({id: {{project.Id}} })">{{project.Name}}</a></td>
                         <td>{{project.Description}}</td>
-                        <td>{{project.startDate}}</td>
+                        <td>{{project.StartDate}}</td>
                         <td>{{project.EndDate}}</td>
                         <td>
 

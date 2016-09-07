@@ -5,6 +5,7 @@ myApp.factory('CustomersFactory',function ($http, $q) {
     var factory ={
         customers : false,
         projects :false,
+        interventions:false,
         getCustomers: function () {
             var deferred = $q.defer();
             if(factory.customers!=false){
@@ -54,6 +55,25 @@ myApp.factory('CustomersFactory',function ($http, $q) {
                         factory.projects = angular.fromJson(data);
                         //console.log(factory.customers);
                         deferred.resolve(factory.projects);
+                    })
+                    .error(function (response) {
+                        Materialize.toast(response, 3000, 'red');
+                        deferred.reject(response);
+                    });
+            }
+            return deferred.promise;
+        },
+        getInterventionsCustomer: function (id) {
+            var deferred = $q.defer();
+            if(factory.interventions!=false){
+                deferred.resolve(factory.interventions);
+            }
+            else {
+                $http.get('http://localhost:3821/api/Customers/'+id+'/interventions')
+                    .success(function (data) {
+                        factory.interventions = angular.fromJson(data);
+                        //console.log(factory.customers);
+                        deferred.resolve(factory.interventions);
                     })
                     .error(function (response) {
                         Materialize.toast(response, 3000, 'red');

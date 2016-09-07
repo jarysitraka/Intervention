@@ -25,7 +25,7 @@ myApp.controller('CustomersDetailsCtrl',function ($scope, $rootScope, CustomersF
         $scope.$parent.pageTitle=customer.FullName;//à mettre sur tous les controllers
         $scope.$parent.cookieUsername=$cookies.getObject('connected');//à mettre sur tous les controllers
         $scope.customer=customer;
-        $scope.interventionsCustomer = customer.Interventions;
+
         $scope.devicesCustomer = customer.Devices;
 
         Materialize.toast("mety", 3000, 'green');
@@ -34,10 +34,17 @@ myApp.controller('CustomersDetailsCtrl',function ($scope, $rootScope, CustomersF
         Materialize.toast(msg, 3000, 'red');
     });
 
+    $scope.interventionsCustomer = CustomersFactory.getInterventionsCustomer($stateParams.id).then(function (interventions) {
+        $scope.interventionsCustomer = interventions;
+        $scope.loading=false;
+    }, function (msg) {
+        Materialize.toast(msg, 3000, 'red');
+    });
+
     $scope.projectsCustomer = CustomersFactory.getProjectsCustomer($stateParams.id).then(function (projects) {
         $scope.projectsCustomer = projects;
 
-        $scope.loading=false;
+
     }, function (msg) {
         Materialize.toast(msg, 3000, 'red');
     });

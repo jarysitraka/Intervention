@@ -41,6 +41,25 @@ myApp.factory('ProjectsFactory',function ($http, $q) {
             });
 
             return deferred.promise;
+        },
+        getInterventionsProject: function (id) {
+            var deferred = $q.defer();
+            if(factory.interventions!=false){
+                deferred.resolve(factory.interventions);
+            }
+            else {
+                $http.get('http://localhost:3821/api/project/'+id+'/interventions')
+                    .success(function (data) {
+                        factory.interventions = angular.fromJson(data);
+                        //console.log(factory.customers);
+                        deferred.resolve(factory.interventions);
+                    })
+                    .error(function (response) {
+                        Materialize.toast(response, 3000, 'red');
+                        deferred.reject(response);
+                    });
+            }
+            return deferred.promise;
         }
 
 
