@@ -9,7 +9,10 @@ myApp.controller('TechniciansCtrl',function ($scope, $rootScope, TechnicianFacto
         $scope.$parent.cookieUsername=$cookies.getObject('connected');//à mettre sur tous les controllers
 
         $scope.technicians = TechnicianFactory;
-        $scope.technician = $scope.technicians[0];
+
+        $scope.details($scope.technicians[0].Id);
+
+        //$scope.technician = $scope.technicians[0];
         $scope.loading=false;
         //Materialize.toast("liste bien recuper", 3000, 'blue')
     }, function (msg) {
@@ -27,7 +30,7 @@ myApp.controller('TechniciansCtrl',function ($scope, $rootScope, TechnicianFacto
             Materialize.toast(msg, 3000, 'red');
         });
 
-        $scope.technician = TechnicianFactory.getTechnicianGroups(id).then(function (grp) {
+        $scope.groups = TechnicianFactory.getTechnicianGroups(id).then(function (grp) {
 
             $scope.groups=grp;
 
@@ -38,6 +41,14 @@ myApp.controller('TechniciansCtrl',function ($scope, $rootScope, TechnicianFacto
         }, function (msg) {
             Materialize.toast(msg, 3000, 'red');
         });
+
+        $scope.labels =["Box internet", "Laptop", "TV","Work"];
+
+        $scope.data = [
+            [4, 3, 2,5]//,
+            //[28, 48, 40, 19, 96, 27, 100]
+        ];
+
     }
 
 

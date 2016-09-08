@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>{{pageTitle}}</title>
-
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../node_modules/materialize-css/dist/css/materialize.css">
     <link rel="stylesheet" href="../node_modules/angular-material/angular-material.css">
@@ -11,7 +10,7 @@
     <link rel="stylesheet" href="assets/leaflet.css">
     <script src="assets/leaflet.js"></script>
 </head>
-<body >
+<body>
 
     <!--div ng-show="loading">chargement...</div-->
     <div ui-view></div>
@@ -25,6 +24,8 @@
     <script src="../node_modules/angular-animate/angular-animate.js"></script>
     <script src="../node_modules/angular-aria/angular-aria.js"></script>
     <script src="../node_modules/angular-messages/angular-messages.js"></script>
+    <script src="../node_modules/chart.js/dist/Chart.min.js"></script>
+    <script src="../node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
 
 
     <script src="app.js" ></script>
@@ -48,6 +49,19 @@
 
 
     <script src="../node_modules/materialize-css/dist/js/materialize.js"></script>
+
+
+    <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 50px; right: 24px;">
+        <a class="btn-floating btn-large red">
+            <i class="material-icons">menu</i>
+        </a>
+        <ul>
+            <li><a class="btn-floating blue" title="insert"><i class="material-icons">assignment</i></a></li>
+            <li><a class="btn-floating yellow darken-1" title="global Search"><i class="material-icons">format_quote</i></a></li>
+            <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+            <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+        </ul>
+    </div>
 
 </body>
 </html>
