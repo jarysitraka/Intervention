@@ -1,2 +1,100 @@
 <div ng-include="'views/layout/header.html'"></div>
 <div ng-include="'views/layout/navigation.html'"></div>
+
+<style>
+    .pad{
+        padding: 30px;
+    }
+    .padlr{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .mad{
+        margin-left: 30px;
+    }
+
+    #mapid { height:500px; border:1px solid red; }
+</style>
+<div>
+
+    <div id="cards" class="row pad">
+
+        <div class="col s2 m2">
+            <div class="card ">
+                <div class=" center card-content blue-text">
+                    <span class="card-title "><small>11 clients</small></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s3 m3">
+            <div class="card ">
+                <div class="card-content  center blue-text">
+                    <span class="card-title"><small>3 Interventions éffectuées</small></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s3 m3">
+            <div class="card ">
+                <div class="card-content  center red-text">
+                    <span class="card-title"><small>3 Interventions en retards</small></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s2 m2">
+            <div class="card ">
+                <div class="card-content  center blue-text">
+                    <span class="card-title"><small>2 Projects</small></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s2 m2">
+            <div class="card ">
+                <div class="card-content  center blue-text">
+                    <span class="card-title"><small>2 Projects</small></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="firstChart" class="row padlr" >
+
+        <div class="col s4 m4" ng-controller="horizontal">
+            <div class="card ">
+                <div class="card-content ">
+                    <span class="card-title">Horizontal</span>
+                    <canvas id="base" class="chart-horizontal-bar"
+                            chart-data="data" chart-labels="labels" >
+                    </canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s4 m4" ng-controller="pie">
+            <div class="card ">
+                <div class="card-content ">
+                    <span class="card-title">Horizontal</span>
+                    <canvas id="pie" class="chart chart-pie"
+                            chart-data="data" chart-labels="labels" chart-options="options">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s4 m4" ng-controller="radar">
+            <div class="card ">
+                <div class="card-content ">
+                    <span class="card-title">Horizontal</span>
+                    <canvas id="radar" class="chart chart-radar"
+                            chart-data="data" chart-options="options" chart-labels="labels">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div >
