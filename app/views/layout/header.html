@@ -1,10 +1,16 @@
+<style>
+    #dropdown1{
+        width: 200px ;
+    }
+</style>
+
 <nav class="blue-grey darken-1 hide-print">
     <div class="nav-wrapper">
         <a href="#" class="brand-logo"><img src="assets/images/my-company-mini.png"></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="#"><i class="material-icons left">add_alert</i>Notifications</a></li>
 
-            <li><a class="dropdown-button" href="" data-activates="dropdown1"><i class="material-icons left">perm_identity</i> {{cookieUsername.FullName}}<i class="material-icons right">arrow_drop_down</i> </a></li>
+            <li><a class="dropdown-button" href="" data-activates="dropdown1" id="droplog"><i class="material-icons left">perm_identity</i> {{cookieUsername.FullName}}<i class="material-icons right">arrow_drop_down</i> </a></li>
         </ul>
     </div>
 </nav>
@@ -16,6 +22,15 @@
 </ul>
 <script>
     $( document ).ready(function(){
-        $(".dropdown-button").dropdown();
+        $('#droplog').dropdown({
+                    inDuration: 300,
+                    outDuration: 225,
+                    constrain_width: false, // Does not change width of dropdown to that of the activator
+                    hover: true, // Activate on hover
+                    gutter: 0, // Spacing from edge
+                    belowOrigin: true, // Displays dropdown below the button
+                    alignment: 'right' // Displays dropdown with edge aligned to the left of button
+                }
+        );
     });
 </script>

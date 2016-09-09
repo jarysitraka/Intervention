@@ -1,13 +1,85 @@
+<style>
+    .menuu{
+        min-width: 125px;
+    }.dropdown-content{
+        width: 125px;
+         }
+</style>
+
 <nav class="blue-grey lighten-2 hide-print">
     <div class="nav-wrapper">
         <ul class="left hide-on-med-and-down">
-            <li  ui-sref-active="active"><a ui-sref="customers">Clients</a></li>
-            <li  ui-sref-active="active"><a ui-sref="projects">Projets</a></li>
-            <li  ui-sref-active="active"><a ui-sref="interventions">Interventions</a></li>
-            <li  ui-sref-active="active"><a ui-sref="technicians">Techniciens</a></li>
-            <li  ui-sref-active="active"><a ui-sref="dashboard">Tableau de bord</a></li>
-            <li  ui-sref-active="active"><a ui-sref="planning">Planinng</a></li>
-
+            <li  ui-sref-active="active"><a class="dropdown-button menuu center" data-activates="dropdownClient" id="dropcus">Clients</a></li>
+            <li  ui-sref-active="active"><a class="dropdown-button menuu center" data-activates="dropdownProject" id="droppro">Projets</a></li>
+            <li  ui-sref-active="active"><a class="dropdown-button menuu center" data-activates="dropdownIntervention" id="dropint">Interventions</a></li>
+            <li  ui-sref-active="active"><a class="dropdown-button menuu center" data-activates="dropdownTechnicien" id="droptec">Techniciens</a></li>
+            <li  ui-sref-active="active"><a class="menuu center" ui-sref="dashboard">Tableau de bord</a></li>
+            <li  ui-sref-active="active"><a class="menuu center" ui-sref="planning">Planinng</a></li>
         </ul>
     </div>
 </nav>
+
+<ul id="dropdownClient" class="dropdown-content hide-print  ">
+    <li class="text-black" ><a ui-sref="customers"><i class="material-icons left">toc</i>List</a></li>
+    <li><a href=""><i class="material-icons left">add</i>Add</a></li>
+</ul>
+<ul id="dropdownProject" class="dropdown-content hide-print">
+    <li><a ui-sref="projects"><i class="material-icons left">toc</i>List</a></li>
+    <li><a href=""><i class="material-icons left">add</i>Add</a></li>
+</ul>
+<ul id="dropdownIntervention" class="dropdown-content hide-print">
+    <li><a ui-sref="interventions"><i class="material-icons left">toc</i>List</a></li>
+    <li><a href=""><i class="material-icons left">add</i>Add</a></li>
+</ul>
+<ul id="dropdownTechnicien" class="dropdown-content hide-print">
+    <li><a ui-sref="technicians"><i class="material-icons left">toc</i>List</a></li>
+    <li><a href=""><i class="material-icons left">add</i>Add</a></li>
+</ul>
+
+
+<script>
+    $( document ).ready(function(){
+
+        $('#dropcus').dropdown({
+                    inDuration: 300,
+                    outDuration: 225,
+                    constrain_width: true, // Does not change width of dropdown to that of the activator
+                    hover: true, // Activate on hover
+                    gutter: 0, // Spacing from edge
+                    belowOrigin: true, // Displays dropdown below the button
+                    alignment: 'right' // Displays dropdown with edge aligned to the left of button
+                }
+        );
+        $('#droppro').dropdown({
+                    inDuration: 300,
+                    outDuration: 225,
+                    constrain_width: false, // Does not change width of dropdown to that of the activator
+                    hover: true, // Activate on hover
+                    gutter: 0, // Spacing from edge
+                    belowOrigin: true, // Displays dropdown below the button
+                    alignment: 'right' // Displays dropdown with edge aligned to the left of button
+                }
+        );
+        $('#dropint').dropdown({
+                    inDuration: 300,
+                    outDuration: 225,
+                    constrain_width: false, // Does not change width of dropdown to that of the activator
+                    hover: true, // Activate on hover
+                    gutter: 0, // Spacing from edge
+                    belowOrigin: true, // Displays dropdown below the button
+                    alignment: 'right' // Displays dropdown with edge aligned to the left of button
+                }
+        );
+        $('#droptec').dropdown({
+                    inDuration: 300,
+                    outDuration: 225,
+                    constrain_width: false, // Does not change width of dropdown to that of the activator
+                    hover: true, // Activate on hover
+                    gutter: 0, // Spacing from edge
+                    belowOrigin: true, // Displays dropdown below the button
+                    alignment: 'right' // Displays dropdown with edge aligned to the left of button
+                }
+        );
+
+    });
+</script>

@@ -24,6 +24,17 @@
           </div>
     </div>
 
+    <div id="addIntervention" class="modal">
+        <div class="modal-content">
+            <h4 class="center">Ajouter une intervention</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
+
     <!--div ng-show="loading">chargement...</div-->
     <div ui-view></div>
 
@@ -79,6 +90,9 @@
         </ul>
     </div>
 <script>
+
+
+
     $(document).ready(function(){
 
         $('.modal-trigger').leanModal({
@@ -90,14 +104,17 @@
                     ending_top: '10%' // Ending top style attribute
                 }
         );
-    });
 
-    $('input.autocomplete').autocomplete({
-        data: {
-            "Apple": 'aaaaaa',
-            "Microsoft": 'ouuuuh',
-            "Google": 'http://placehold.it/250x250'
-        }
+
+        $('#autocomplete-input').autocomplete({
+            data: {
+                "Apple": "iPhone",
+                "Microsoft": "Lumia",
+                "Google": 'http://placehold.it/250x250'
+            }
+        });
+
+
     });
 
 

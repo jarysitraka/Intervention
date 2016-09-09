@@ -1,5 +1,21 @@
 <div ng-include="'views/layout/header.html'"></div>
 <div ng-include="'views/layout/navigation.html'"></div>
+
+<div id="modal2" class="modal">
+    <div class="modal-content ">
+        <div class="row center">
+            <div class="col s1 " ><i class="medium material-icons">warning</i></div>
+            <div class="col s11"><h5 class="red-text"><small>Voulez-vous vraiment supprimer " {{intervention.Name}} " ?</small></h5></div>
+        </div>
+        <p class="center">Ceci supprimera définitivement les informations liées à cette intervention </p>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">No</a>
+        <a href="#" class=" modal-action modal-close waves-effect waves-green btn-flat">Yes</a>
+    </div>
+</div>
+
+
 <style>
 
     .pad{
@@ -22,7 +38,8 @@
         </div>
         <div class="col s3 mad ">
             <a class=" btn waves-effect waves-light teal lighten-2 tooltipped " data-position="bottom" data-delay="50" data-tooltip="Edit Infromations"><i class="medium material-icons ">mode_edit</i></a>
-            <a class=" btn waves-effect waves-light red lighten-2 tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete"><i class="medium material-icons ">delete</i></a>
+            <a class=" btn waves-effect waves-light red lighten-2 tooltipped modal-trigger" href="#modal2" data-position="bottom" data-delay="50" data-tooltip="Delete"><i class="medium material-icons ">delete</i></a>
+            <a class=" btn teal lighten-2 "  ><i class="medium material-icons left">done</i>Done</a>
         </div>
         <div class="col s6 pad">
             <div class="center-align">
@@ -137,6 +154,20 @@
     $(document).ready(function(){
         $('ul.tabs').tabs();
         $('.tooltipped').tooltip({delay: 50});
+
+
+
+            $('.modal-trigger').leanModal({
+                        dismissible: true, // Modal can be dismissed by clicking outside of the modal
+                        opacity: 0.6, // Opacity of modal background
+                        in_duration: 300, // Transition in duration
+                        out_duration: 200, // Transition out duration
+                        starting_top: '50%', // Starting top style attribute
+                        ending_top: '10%' // Ending top style attribute
+                    }
+            );
+
+
     });
 
 </script>

@@ -107,7 +107,7 @@ myApp.controller('PlanningCtrl',function ($scope, $rootScope,$filter,$cookies,$c
             height: 500,
             editable: true,
             header:{
-                left: 'month basicWeek basicDay agendaWeek',
+                left: 'month basicWeek basicDay',
                 center: 'title',
                 right: 'today prev,next'
             },
