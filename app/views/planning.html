@@ -1,32 +1,74 @@
 <div ng-include="'views/layout/header.html'"></div>
 <div ng-include="'views/layout/navigation.html'"></div>
 
+<style>
+    .fc-center{
+        color:teal;
+    }
+    .pd{
+        padding-top: 30px;
+    }
+</style>
 
-
-<div class="row">
-    <div class="col s8">
-        <calendar-md flex layout layout-fill
-                     calendar-direction="direction"
-                     on-prev-month="prevMonth"
-                     on-next-month="nextMonth"
-                     on-day-click="dayClick"
-                     title-format="'MMMM y'"
-                     ng-model='selectedDate'
-                     week-starts-on="firstDayOfWeek"
-        <--Set the initial month here. "8" is September. Defaults to current-->
-        data-start-month="8"
-        <--Set the initial year here. Defaults to current.-->
-        data-start-year="2014"
-        tooltips="tooltips"
-        day-format="dayFormat"
-        day-label-format="'EEE'"
-        day-label-tooltip-format="'EEEE'"
-        day-tooltip-format="'fullDate'"
-        day-content="setDayContent"
-        disable-future-selection="false"
-        <-- Allows dates in the future to be disabled and unselectable. Defaults to false--> >
-        </calendar-md>
-
+<div class="row pd">
+    <div class="col s8 ">
+        <div ui-calendar="uiConfig.calendar" ng-model="eventSources2"></div>
     </div>
-    <div class="col s4">{{msg}}</div>
-</div>
+    <div class="col s4">
+
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <select class="icons"  >
+                    <option value="" disabled selected>filter par technicien</option>
+                    <option value="" data-icon="assets/images/no_user_logo.png" class="circle" >rakoto Jean</option>
+                    <option value="" data-icon="assets/images/no_user_logo.png" class="circle" >lalala</option>
+                    <option value="" data-icon="assets/images/no_user_logo.png" class="circle" >technicien 2</option>
+                </select>
+            </div>
+        </div>
+        <div ng-show="alertMessage">
+
+
+            <div class="row">
+                <h4><small>{{alertMessage}}</small></h4>
+                <div class="col s6">
+                    <h5><small><b>Number</b></small></h5>
+                    <div class="divider"></div>
+                    <p>0001</p>
+                </div>
+                <div class="col s6">
+                    <h5><small><b>Remarks</b></small></h5>
+                    <div class="divider"></div>
+                    <p>sans problème</p>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s6">
+                    <h5><small><b>Site</b></small></h5>
+                    <div class="divider"></div>
+                    <p>Lot IVA 5  Ter Tanjombato</p>
+                </div>
+
+                <div class="col s5">
+                    <h5><small><b>Client</b></small></h5>
+                    <div class="divider"></div>
+                    <p>Jary Sitraka Razafindrakoto</p>
+                    <p><i class="tiny material-icons">call</i> +261326409005</p>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <button class="btn">More details</button>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+        $('select').material_select();
+    });
+    </script>
