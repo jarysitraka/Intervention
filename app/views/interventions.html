@@ -18,25 +18,25 @@
             </div>
         </div>
         <div class="card">
-            <table class=" striped responsive-table">
+            <table class=" bordered responsive-table">
                 <thead>
                 <tr >
-                    <th >Name</th>
+                    <th >Libellé</th>
                     <th >Status</th>
-                    <th >Customer</th>
-                    <th >Project</th>
-                    <th >Start Date</th>
-                    <th >End Date</th>
+                    <th >Client</th>
+                    <th >Remarque</th>
+                    <th >Debut</th>
+                    <th >Fin</th>
                 </tr>
                 </thead>
 
                 <tbody>
 
                 <tr ng-repeat="intervention in interventions | filter :searchText">
-                    <td><a ui-sref="interventionDetails({id: {{intervention.Id}} })">{{intervention.Remarks}}</a></td>
-                    <td>In progress</td>
+                    <td><a ui-sref="interventionDetails({id: {{intervention.Id}} })">{{intervention.Name}}</a></td>
+                    <td class="green-text">Terminé</td>
                     <td><a ui-sref="customerDetails({id: {{intervention.Customer.Id}} })">{{intervention.Customer.FullName}}</a></td>
-                    <td><a ui-sref="projectDetails({id: {{intervention.Project.Id}} })">{{intervention.Project.Name}}</a></td>
+                    <td><a ui-sref="projectDetails({id: {{intervention.Project.Id}} })">{{intervention.Remarks}}</a></td>
                     <td>{{intervention.StartDate | date:'yyyy-MMM-dd'}}</td>
                     <td>{{intervention.EndDate | date:'yyyy-MMM-dd'}}</td>
                 </tr>

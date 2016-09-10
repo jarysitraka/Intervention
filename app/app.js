@@ -58,7 +58,7 @@ myApp.config(['$stateProvider',function($stateProvider){
         })
         .state('addIntervention',{
             url : "/intervetion/add",
-            controller : "",
+            controller : "InterventionAddCtrl",
             templateUrl: "views/AddIntervention.html"
         });
 

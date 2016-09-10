@@ -51,7 +51,10 @@ myApp.controller('PlanningCtrl',function ($scope, $rootScope,$filter,$cookies,$c
     };
     /* alert on Drop */
     $scope.alertOnDrop = function(event, delta, revertFunc, jsEvent, ui, view){
-        $scope.alertMessage = ('Event Dropped to make dayDelta ' + delta);
+        $scope.alertMessage = ('l\'interventionintervention a été déplacé au '+event.start._d+' '  );
+        console.log(event.start);
+        console.log(event.start._d);//nouvel date
+        console.log(event.start._i);//nouvel date
     };
     /* alert on Resize */
     $scope.alertOnResize = function(event, delta, revertFunc, jsEvent, ui, view ){
