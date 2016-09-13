@@ -23,7 +23,7 @@ myApp.controller('InterventionDetailsCtrl',function ($scope, $rootScope, Interve
         $scope.interventionGroup =$scope.intervention.Group;
         $scope.loading=false;
         //console.log("reo e"+customer.Interventions[0].Remarks);
-        Materialize.toast("mety", 3000, 'green');
+       // Materialize.toast("mety", 3000, 'green');
         //Materialize.toast("liste bien recuper", 3000, 'blue')
     }, function (msg) {
         Materialize.toast(msg, 3000, 'red');

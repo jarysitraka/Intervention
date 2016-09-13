@@ -10,35 +10,42 @@
         padding-right: 30px;
     }
     .mad{
-        margin-left: 30px;
+        margin-left: 500px;
     }
 
     #mapid { height:500px; border:1px solid red; }
 </style>
-<div>
+<div class="progress" ng-show="loading">
+    <div class="indeterminate"></div>
+</div>
+<div ng-hide="loading">
 
     <div id="cards" class="row pad">
+
+        <div class="col s1 m1">
+            &nbsp;
+        </div>
 
         <div class="col s2 m2">
             <div class="card ">
                 <div class=" center card-content blue-text">
-                    <span class="card-title "><small>11 clients</small></span>
+                    <span class="card-title "><small>10 clients</small></span>
                 </div>
             </div>
         </div>
 
-        <div class="col s3 m3">
+        <div class="col s2 m2">
             <div class="card ">
-                <div class="card-content  center blue-text">
-                    <span class="card-title"><small>3 Interventions éffectuées</small></span>
+                <div class="card-content  center teal-text">
+                    <span class="card-title"><small>3 Interventions <i class=" teal-text tiny material-icons">done</i></small></span>
                 </div>
             </div>
         </div>
 
-        <div class="col s3 m3">
+        <div class="col s2 m2">
             <div class="card ">
                 <div class="card-content  center red-text">
-                    <span class="card-title"><small>3 Interventions en retards</small></span>
+                    <span class="card-title"><small>3 Interventions <i class=" red-text tiny material-icons">snooze</i></small></span>
                 </div>
             </div>
         </div>
@@ -46,7 +53,7 @@
         <div class="col s2 m2">
             <div class="card ">
                 <div class="card-content  center blue-text">
-                    <span class="card-title"><small>2 Projects</small></span>
+                    <span class="card-title"><small>1 Interventions <i class=" blue-text tiny material-icons">alarm_on</i></small></span>
                 </div>
             </div>
         </div>
@@ -54,10 +61,11 @@
         <div class="col s2 m2">
             <div class="card ">
                 <div class="card-content  center blue-text">
-                    <span class="card-title"><small>2 Projects</small></span>
+                    <span class="card-title"><small>4 Projects <i class=" blue-text tiny material-icons">work</i></small></span>
                 </div>
             </div>
         </div>
+
     </div>
 
     <div id="firstChart" class="row padlr" >
@@ -65,7 +73,7 @@
         <div class="col s4 m4" ng-controller="horizontal">
             <div class="card ">
                 <div class="card-content ">
-                    <span class="card-title">Horizontal</span>
+                    <h6 >Nombre d' <span class="light-blue-text">interventions</span>/<span class="grey-text">projets</span> en fonction du temps  </h6>
                     <canvas id="base" class="chart-horizontal-bar"
                             chart-data="data" chart-labels="labels" >
                     </canvas>
@@ -76,7 +84,7 @@
         <div class="col s4 m4" ng-controller="pie">
             <div class="card ">
                 <div class="card-content ">
-                    <span class="card-title">Horizontal</span>
+                    <h6 > Etats des interventions </h6>
                     <canvas id="pie" class="chart chart-pie"
                             chart-data="data" chart-labels="labels" chart-options="options">
                     </canvas>
@@ -87,7 +95,7 @@
         <div class="col s4 m4" ng-controller="radar">
             <div class="card ">
                 <div class="card-content ">
-                    <span class="card-title">Horizontal</span>
+                    <h6 > Nombre d'intervention par rapport aux devices</h6>
                     <canvas id="radar" class="chart chart-radar"
                             chart-data="data" chart-options="options" chart-labels="labels">
                     </canvas>

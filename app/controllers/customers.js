@@ -28,7 +28,7 @@ myApp.controller('CustomersDetailsCtrl',function ($scope, $rootScope, CustomersF
 
         $scope.devicesCustomer = customer.Devices;
 
-        Materialize.toast("mety", 3000, 'green');
+        //Materialize.toast("mety", 3000, 'green');
         //Materialize.toast("liste bien recuper", 3000, 'blue')
     }, function (msg) {
         Materialize.toast(msg, 3000, 'red');

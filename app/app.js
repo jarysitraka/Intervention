@@ -1,4 +1,5 @@
 var myApp = angular.module('myApp',['ui.router','ngCookies','ngMaterial','chart.js','ui.calendar']);
+
 myApp.config(['$stateProvider',function($stateProvider){
     $stateProvider
         .state('login',{

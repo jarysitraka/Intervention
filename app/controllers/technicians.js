@@ -42,12 +42,13 @@ myApp.controller('TechniciansCtrl',function ($scope, $rootScope, TechnicianFacto
             Materialize.toast(msg, 3000, 'red');
         });
 
-        $scope.labels =["Box internet", "Laptop", "TV","Work"];
+        $scope.labels1 =["Box internet", "Laptop", "TV","Maintenance"];
 
-        $scope.data = [
-            [4, 3, 2,5]//,
+        $scope.data1 = [
+            [3, 2, 2,0]//,
             //[28, 48, 40, 19, 96, 27, 100]
         ];
+
 
     }
 

@@ -8,7 +8,7 @@
         margin-top: 30px;
     }
 
-    #mapid { height:500px; border:1px solid red; }
+    #mapid { height:400px; border:1px solid red; }
 </style>
 
 <div class="progress" ng-show="loading">
@@ -16,21 +16,21 @@
 </div>
 <div ng-hide="loading">
     <div class="row">
-        <div class="col s3">
-            <h4><small>{{customer.FullName}}</small></h4>
+        <div class="col s2">
+            <h4 class="teal-text"><small>{{customer.FullName}}</small></h4>
         </div>
         <div class="col s3 mad  hide-print">
             <a class=" btn waves-effect waves-light teal lighten-2 tooltipped " data-position="bottom" data-delay="50" data-tooltip="Edit Infromations"><i class="medium material-icons ">mode_edit</i></a>
             <a class=" btn waves-effect waves-light red lighten-2 tooltipped" data-position="bottom" data-delay="50" data-tooltip="Delete customer"><i class="medium material-icons ">delete</i></a>
             <a class=" btn waves-effect waves-light blue darken-1 tooltipped " data-position="bottom" data-delay="50" data-tooltip="Add Intervention"><i class="medium material-icons">insert_chart</i></a>
         </div>
-        <div class="col s6 pad  hide-print">
+        <div class="col s7 pad  hide-print">
            <div class="center-align">
                 <ul class="tabs  ">
-                    <li class="tab col s1"><a class="active" href="#intervention">Interventions</a></li>
-                    <li class="tab col s1"><a href="#locations">Locations</a></li>
-                    <li class="tab col s1"><a href="#devices">Devices</a></li>
-                    <li class="tab col s1"><a href="#projects">Projects</a></li>
+                    <li class="tab col s1"><a class="active" href="#intervention">Interventions (3)</a></li>
+                    <li class="tab col s1"><a href="#locations">Sites</a></li>
+                    <li class="tab col s1"><a href="#devices">Devices (3)</a></li>
+                    <li class="tab col s1"><a href="#projects">Projets (1)</a></li>
                     <li class="tab col s1 disabled"><a href="#factures">Factures</a></li>
                 </ul>
            </div>
@@ -46,7 +46,7 @@
         <div id="details" class="col s12">
             <div class="col s3">
                 <div class="row">
-                    <h5>Principal adress <a class="btn-floating btn waves-effect waves-light blue darken-1 right"><i class="material-icons small">mode_edit</i></a></h5>
+                    <h5>Adresse principale </h5>
                     <div class="divider"></div>
                     <p><i class="material-icons tiny">location_on</i> {{customer.Adress}}</p>
                 </div>
@@ -71,20 +71,20 @@
                     <thead>
                     <tr>
                         <th data-field="interventions">Interventions</th>
-                        <th data-field="status">Status</th>
-                        <th data-field="location">Location</th>
-                        <th data-field="technicians">Technicians</th>
-                        <th data-field="date">Start Date</th>
-                        <th data-field="date">End Date</th>
+                        <th data-field="status">Statuts</th>
+                        <th data-field="location">Sites</th>
+                        <th data-field="technicians">Techniciens</th>
+                        <th data-field="date">Debut</th>
+                        <th data-field="date">Fin</th>
                     </tr>
                     </thead>
 
                     <tbody>
                     <tr ng-repeat="intervention in interventionsCustomer">
                         <td><a ui-sref="interventionDetails({id: {{intervention.Id}} })">{{intervention.Name}}</a></td>
-                        <td class="new badge">4</td>
+                        <td class="green-text">Terminé</td>
                         <td>{{customer.Adress}}</td>
-                        <td>{{intervention.Group.Name}}</td>
+                        <td>{{intervention.Group.Name || "Team One"}}</td>
                         <td>{{intervention.StartDate | date:'yyyy-MMM-dd'}}</td>
                         <td>{{intervention.EndDate | date:'yyyy-MMM-dd'}}</td>
                     </tr>
@@ -104,14 +104,14 @@
 
 
 
-                    var map = L.map('mapid').setView([-18.980595, 47.539415], 13);
+                    var map = L.map('mapid').setView([-18.950940, 47.525204], 13);
 
                     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     }).addTo(map);
 
 
-                    L.marker([-18.980595, 47.539415]).addTo(map)
+                    L.marker([-18.950940, 47.525204]).addTo(map)
                             .bindPopup('{{customer.Adress}}')
                             .openPopup();
                 </script>
@@ -123,11 +123,11 @@
                 <table class="striped responsive-table">
                     <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Serial</th>
-                        <th>Imei</th>
-                        <th>Last test</th>
-                        <th>Others Informations</th>
+                        <th>Nom</th>
+                        <th>N° de serie</th>
+                        <th>Identifiant unique</th>
+                        <th>Dernier test</th>
+                        <th>Informations spécifiques</th>
                         <th></th>
 
                     </tr>
@@ -159,10 +159,10 @@
                 <table class="striped responsive-table">
                     <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>Nom du projet</th>
                         <th>Description</th>
-                        <th>Start date</th>
-                        <th>End Date</th>
+                        <th>Debut</th>
+                        <th>Fin</th>
                         <th></th>
 
                     </tr>
@@ -172,8 +172,8 @@
                     <tr ng-repeat="project in projectsCustomer">
                         <td><a ui-sref="projectDetails({id: {{project.Id}} })">{{project.Name}}</a></td>
                         <td>{{project.Description}}</td>
-                        <td>{{project.StartDate}}</td>
-                        <td>{{project.EndDate}}</td>
+                        <td>07 Septembre 2016</td>
+                        <td>09 Septembre 2016</td>
                         <td>
 
                             <a class=" btn waves-effect waves-light teal lighten-2 "><i class="large material-icons ">mode_edit</i></a>

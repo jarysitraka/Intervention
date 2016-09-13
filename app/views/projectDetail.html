@@ -27,18 +27,19 @@
 
                 <div class="col s4">
                     <div class="row">
-                        <h5>{{project.Name}} <a class="btn-floating btn waves-effect waves-light blue darken-1 right"><i class="material-icons small">mode_edit</i></a></h5>
+                        <h5 class="teal-text">{{project.Name}} <a class="btn-floating btn waves-effect waves-light blue darken-1 right"><i class="material-icons small">mode_edit</i></a></h5>
                         <div class="divider"></div>
                         <p> {{project.Description}}</p>
                     </div>
 
                     <div class="row">
-                        <h5><small>Progession</small></h5>
+                        <h5><small>Progression</small></h5>
                         <div class="divider"></div>
-                        <p> {{project.StartDate | date:'yyyy-MMM-dd'}} to {{project.EndDate | date:'yyyy-MMM-dd'}}</p>
+                        <p> 07 Septembre 2016 au 09 Septembre 2016</p>
 
+                        100%
                         <div class="progress">
-                            <div class="determinate" style="width: 70% "></div>
+                            <div class="determinate" style="width: 100% "></div>
                         </div>
 
 
@@ -46,23 +47,23 @@
 
 
                     <div class="row">
-                        <h5><small>Created By</small></h5>
+                        <h5><small>Projet créé par</small></h5>
                         <div class="divider"></div>
-                        <p> Jary Sitraka Razafindrakoto</p>
+                        <p> Administrateur</p>
 
                     </div>
 
                 </div>
 
                 <div id="interventions" class="col s8">
-                    <h5><small>Interventions in this project</small></h5>
+                    <h5><small>Interventions dans ce projet</small></h5>
                     <table class="striped responsive-table">
                         <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Nom d'intervention</th>
                             <th>Date</th>
-                            <th>Customer</th>
-                            <th>Group</th>
+                            <th>Client</th>
+                            <th>Groupe d'intervention</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
@@ -71,8 +72,8 @@
                         <tr ng-repeat="intervention in projectInterventions">
                             <td><a ui-sref="interventionDetails({id: {{intervention.Id}} })">{{intervention.Name}}</a></td>
                             <td>{{intervention.StartDate | date:'yyyy-MMM-dd'}}</td>
-                            <td ><a  ui-sref="customerDetails({id: {{intervention.Customer.Id}} })" >{{intervention.Customer.FullName}}</a></td>
-                            <td>{{intervention.Group.Name}}</td>
+                            <td ><a  ui-sref="customerDetails({id: {{intervention.Customer.Id}} })" >Jary Sitraka Razafindrakoto</a></td>
+                            <td>{{intervention.Group.Name || "Team One"}}</td>
                             <td>
 
                                 <a class=" btn waves-effect waves-light teal lighten-2 "><i class="large material-icons ">mode_edit</i></a>

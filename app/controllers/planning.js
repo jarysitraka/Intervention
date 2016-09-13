@@ -13,6 +13,8 @@ myApp.controller('PlanningCtrl',function ($scope, $rootScope,$filter,$cookies,$c
     var m = date.getMonth();
     var y = date.getFullYear();
 
+    console.log(y,m,d);
+
     $scope.changeTo = 'Hungarian';
     /* event source that pulls from google.com */
     $scope.eventSource = {
@@ -20,12 +22,9 @@ myApp.controller('PlanningCtrl',function ($scope, $rootScope,$filter,$cookies,$c
     };
     /* event source that contains custom events on the scope */
     $scope.events = [
-        {title: 'All Day Event',start: new Date(y, m, 1)},
-        {title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2)},
-        {id: 999,title: 'Repeating Event',start: new Date(y, m, d - 3, 16, 0),allDay: false},
-        {id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false},
-        {title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false},
-        {title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
+        {title: 'Vérificaction du bon fonctionnement',start: new Date(y, m, 9),end: new Date(y, m, 9),allDay: false},
+        {title: 'Installation matériels',start: new Date(y, m, 8),end: new Date(y, m, 8),allDay: false},
+        {title: 'Pré-installation matériels',start: new Date(y, m, 7),end: new Date(y, m, 7),allDay: false}
     ];
     /* event source that calls a function on every view switch */
     $scope.eventsF = function (start, end, timezone, callback) {
@@ -38,20 +37,42 @@ myApp.controller('PlanningCtrl',function ($scope, $rootScope,$filter,$cookies,$c
 
     $scope.calEventsExt = {
         color: '#f00',
-        textColor: 'yellow',
+        textColor: 'white',
         events: [
-            {type:'party',title: 'Lunch',start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
-            {type:'party',title: 'Lunch 2',start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
-            {type:'party',title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
+            {type:'party',title: 'Changement fil 03',start: new Date(y, m-1, 22, null, null),end: new Date(y, m-1, 22, null, null),allDay: false},
+            {type:'party',title: 'Changement fil 04',start: new Date(y, m-1, 22),end: new Date(y, m-1, 22, null, null),allDay: false},
+            {type:'party',title: 'Changement fil 05',start: new Date(y, m-1, 22),end: new Date(y, m-1, 22)}
         ]
     };
+
+    $scope.proj = {
+        color: '#ffeb3b',
+        textColor: 'white',
+        events: [
+            {type:'party',title: 'Pack 3 en 1 Jary',start: new Date(y, m, 7, null, null),end: new Date(y, m, 10, null, null)},
+            {type:'party',title: 'Verification des devices',start: new Date(y, m, 1),end: new Date(y, m, 30, null, null),allDay: false},
+            {type:'party',title: 'Remplacement des câbles',start: new Date(y, m-1, 22),end: new Date(y, m-1, 22)},
+            {type:'party',title: 'Pack 2 en 1 Tsito',start: new Date(y, m, 22),end: new Date(y, m, 25)}
+        ]
+    };
+
+    $scope.insert = {
+        color: '#00695c',
+        textColor: 'white',
+        events: [
+            {type:'party',title: 'Installation matériel',start: new Date(y, m, 22, null, null),end: new Date(y, m, 22, null, null)},
+            {type:'party',title: 'Pré-installation Client Francky',start: new Date(y, m+1, 3, null, null),end: new Date(y, m+1, 3, null, null)}
+        ]
+    };
+
     /* alert on eventClick */
     $scope.alertOnEventClick = function( date, jsEvent, view){
-        $scope.alertMessage = (date.title + ' was clicked ');
+        $scope.alertMessage = (date.title);
     };
     /* alert on Drop */
     $scope.alertOnDrop = function(event, delta, revertFunc, jsEvent, ui, view){
-        $scope.alertMessage = ('l\'interventionintervention a été déplacé au '+event.start._d+' '  );
+        //$scope.alertMessage = ('l\'interventionintervention a été déplacé au '+event.start._d+' '  );
+        Materialize.toast("Intallation matériel a bien été séplacé au 24 September 2016", 3000, 'green');
         console.log(event.start);
         console.log(event.start._d);//nouvel date
         console.log(event.start._i);//nouvel date
@@ -107,17 +128,26 @@ myApp.controller('PlanningCtrl',function ($scope, $rootScope,$filter,$cookies,$c
     /* config object */
     $scope.uiConfig = {
         calendar:{
-            height: 500,
+            height: 550,
             editable: true,
             header:{
                 left: 'month basicWeek basicDay',
+
                 center: 'title',
                 right: 'today prev,next'
             },
             eventClick: $scope.alertOnEventClick,
             eventDrop: $scope.alertOnDrop,
             eventResize: $scope.alertOnResize,
-            eventRender: $scope.eventRender
+            eventRender: $scope.eventRender,
+            monthNames: ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'],
+            dayNamesShort: ["Dim","Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
+            buttonText: {
+                today:'Aujourd\'hui',
+                month: 'Mois',
+                week: 'Semaine',
+                day: 'Jour'
+            }
         }
     };
 
@@ -134,6 +164,6 @@ myApp.controller('PlanningCtrl',function ($scope, $rootScope,$filter,$cookies,$c
     };
     /* event sources array*/
     $scope.eventSources = [$scope.events, $scope.eventSource, $scope.eventsF];
-    $scope.eventSources2 = [$scope.calEventsExt, $scope.eventsF, $scope.events];
+    $scope.eventSources2 = [$scope.calEventsExt, $scope.proj, $scope.events, $scope.insert];
 
 });

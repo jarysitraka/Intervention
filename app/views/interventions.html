@@ -14,8 +14,29 @@
         <div class="row hide-print">
             <div class="input-field col s2">
                 <input id="icon_prefix" ng-model="searchText" class="validate" />
-                <label for="icon_prefix">Filtrer</label>
+                <label for="icon_prefix">Rechercher</label>
             </div>
+
+
+            <div class="input-field col s3 offset-s1">
+
+                <input  type="date" />
+
+            </div>
+
+            <div class="input-field col s3 offset-s1">
+
+                <input  type="date" />
+            </div>
+
+            <div class="input-field col s1 offset-s1">
+                <select>
+                    <option value="1">10</option>
+                    <option value="2">15</option>
+                    <option value="3">20</option>
+                </select>
+            </div>
+
         </div>
         <div class="card">
             <table class=" bordered responsive-table">
@@ -32,13 +53,46 @@
 
                 <tbody>
 
+                <tr>
+                    <td><a ui-sref="interventionDetails({id: 1 })">Pré-installation Client Francky</a></td>
+                    <td class="grey-text">Planifié</td>
+                    <td><a ui-sref="customerDetails({id: 1 })">Harifetra Francky Andrianarijaona</a></td>
+                    <td></td>
+                    <td>2016-Oct-03</td>
+                    <td>2016-Oct-03</td>
+                </tr>
+
                 <tr ng-repeat="intervention in interventions | filter :searchText">
                     <td><a ui-sref="interventionDetails({id: {{intervention.Id}} })">{{intervention.Name}}</a></td>
                     <td class="green-text">Terminé</td>
-                    <td><a ui-sref="customerDetails({id: {{intervention.Customer.Id}} })">{{intervention.Customer.FullName}}</a></td>
-                    <td><a ui-sref="projectDetails({id: {{intervention.Project.Id}} })">{{intervention.Remarks}}</a></td>
+                    <td><a ui-sref="customerDetails({id: {{intervention.Customer.Id}} })">Jary Sitraka Razafindrakoto</a></td>
+                    <td>{{intervention.Remarks}}</td>
                     <td>{{intervention.StartDate | date:'yyyy-MMM-dd'}}</td>
                     <td>{{intervention.EndDate | date:'yyyy-MMM-dd'}}</td>
+                </tr>
+                <tr>
+                    <td><a ui-sref="interventionDetails({id: {{intervention.Id}} })">Cangement fil 03</a></td>
+                    <td class="red-text">En retard</td>
+                    <td><a ui-sref="customerDetails({id: 1 })">My Company</a></td>
+                    <td></td>
+                    <td>2016-Aug-22</td>
+                    <td>2016-Aug-22</td>
+                </tr>
+                <tr>
+                    <td><a ui-sref="interventionDetails({id: 1 })">Cangement fil 04</a></td>
+                    <td class="red-text">En retard</td>
+                    <td><a ui-sref="customerDetails({id: 1 })">My Company</a></td>
+                    <td></td>
+                    <td>2016-Aug-22</td>
+                    <td>2016-Aug-22</td>
+                </tr>
+                <tr>
+                    <td><a ui-sref="interventionDetails({id: 1 })">Cangement fil 05</a></td>
+                    <td class="red-text">En retard</td>
+                    <td><a ui-sref="customerDetails({id: 1 })">My Company</a></td>
+                    <td></td>
+                    <td>2016-Aug-22</td>
+                    <td>2016-Aug-22</td>
                 </tr>
 
                 </tbody>
@@ -55,5 +109,14 @@
     </div>
 
 </div>
+<script>
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
 
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>
 

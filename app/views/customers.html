@@ -14,17 +14,38 @@
         <div class="row hide-print">
             <div class="input-field col s2">
                 <input id="icon_prefix" ng-model="searchText" class="validate" />
-                <label for="icon_prefix">Filtrer</label>
+                <label for="icon_prefix">Rechercher</label>
+            </div>
+
+
+            <div class="input-field col s3 offset-s1">
+
+                <input  type="date" />
+
+            </div>
+
+            <div class="input-field col s3 offset-s1">
+
+                <input  type="date" />
+            </div>
+
+
+            <div class="input-field col s1 offset-s1">
+                <select>
+                    <option value="1">5</option>
+                    <option value="2">10</option>
+                    <option value="3">20</option>
+                </select>
             </div>
         </div>
         <div class="card">
             <table class=" bordered responsive-table">
                 <thead>
                 <tr >
-                    <th data-field="name">Name</th>
-                    <th data-field="name">Adress</th>
-                    <th data-field="phone">Phone</th>
-                    <th data-field="phone">Mobile</th>
+                    <th data-field="name">Nom</th>
+                    <th data-field="name">Adresse</th>
+                    <th data-field="phone">Mobile 1</th>
+                    <th data-field="phone">Mobile 2</th>
                     <th data-field="email">Email</th>
                 </tr>
                 </thead>
@@ -53,3 +74,8 @@
 
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>

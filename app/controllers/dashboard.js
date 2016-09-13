@@ -1,37 +1,43 @@
-myApp.controller('DashboardCtrl', function ($scope,$cookies,$location) {
+myApp.controller('DashboardCtrl', function ($scope,$cookies,$location,$timeout) {
     if($cookies.getObject('connected')==null){
         $location.path("");
     }
+
+    $scope.loading = true;
+    $timeout(function () {
+        $scope.loading = false;
+    },2000);
+
+
     $scope.$parent.pageTitle='Dashboard';//à mettre sur tous les controllers
     $scope.$parent.cookieUsername=$cookies.getObject('connected');//à mettre sur tous les controllers
 });
 
 myApp.controller("horizontal", function ($scope) {
 
-    $scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+    $scope.labels = ['Juin', 'Juillet', 'Août', 'Setpembre', 'Octobre', 'Novembre', 'Decembre'];
     $scope.series = ['Series A', 'Series B'];
 
     $scope.data = [
-        [65, 59, 80, 81, 56, 55, 40],
-        [28, 48, 40, 19, 86, 27, 90]
+        [0, 0, 3, 3, 1, 0, 0],
+        [0, 0, 1, 3, 0, 0, 0]
     ];
 
 });
 
 myApp.controller("pie", function ($scope) {
 
-    $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
-    $scope.data = [300, 500, 100];
+    $scope.labels = ["Terminées", "Planifiées", "En retard"];
+    $scope.data = [3, 1, 3];
 
 });
 
 myApp.controller("radar", function ($scope) {
 
-    $scope.labels =["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"];
+    $scope.labels =["Box internet", "Decoder", "Laptop", "poteau", "Antenne"];
 
     $scope.data = [
-        [65, 59, 90, 81, 56, 55, 40],
-        [28, 48, 40, 19, 96, 27, 100]
+        [2, 2, 1, 0, 0]
     ];
 
 });

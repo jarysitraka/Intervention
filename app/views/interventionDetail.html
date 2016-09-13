@@ -36,17 +36,17 @@
         <div class="col s3">
             <h4 class="teal-text"><small>{{intervention.Name}}</small></h4>
         </div>
-        <div class="col s3 mad ">
+        <div class="col s4 mad ">
             <a class=" btn waves-effect waves-light teal lighten-2 tooltipped " data-position="bottom" data-delay="50" data-tooltip="Edit Infromations"><i class="medium material-icons ">mode_edit</i></a>
             <a class=" btn waves-effect waves-light red lighten-2 tooltipped modal-trigger" href="#modal2" data-position="bottom" data-delay="50" data-tooltip="Delete"><i class="medium material-icons ">delete</i></a>
-            <a class=" btn teal lighten-2 "  ><i class="medium material-icons left">done</i>Done</a>
+            <a class=" btn transparent black-text"  ><i class="medium material-icons left">done</i>Terminé</a>
         </div>
-        <div class="col s6 pad">
+        <div class="col s5 pad">
             <div class="center-align">
                 <ul class="tabs">
-                    <li class="tab col s1"><a href="#groups">Groups</a></li>
-                    <li class="tab col s1"><a href="#project">Project</a></li>
-                    <li class="tab col s1"><a href="#location">Location</a></li>
+                    <li class="tab col s1"><a href="#groups">Groupe</a></li>
+                    <li class="tab col s1"><a href="#project">Projet</a></li>
+                    <li class="tab col s1"><a href="#location">Site</a></li>
                 </ul>
             </div>
         </div>
@@ -61,42 +61,53 @@
             <div class="col s5 ">
 
                 <div class="row">
-                    <div class="col s2">
-                        <h5><small><b>Number</b></small></h5>
+                    <div class="col s4">
+                        <h5><small><b>N° Intervention</b></small></h5>
                         <div class="divider"></div>
                         <p>{{intervention.Number}}</p>
                     </div>
-                    <div class="col s6">
-                        <h5><small><b>Remarks</b></small></h5>
-                        <div class="divider"></div>
-                        <p>{{intervention.Remarks}}</p>
 
+
+                    <div class="col s4">
+                        <h5><small><b>Date</b></small></h5>
+                        <div class="divider"></div>
+                        <p>07 Septembre 2016</p>
+                    </div>
+
+                    <div class="col s4">
+                        <h5><small><b>Client</b></small></h5>
+                        <div class="divider"></div>
+                        <p>{{intervention.Customer.FullName}}</p>
+                        <p><i class="tiny material-icons">call</i> (261) 33 33 106 57</p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col s6">
-                        <h5><small><b>Site</b></small></h5>
+                        <h5><small><b>Site de l'intervention</b></small></h5>
                         <div class="divider"></div>
                         <p>{{intervention.Customer.Adress}}</p>
                     </div>
 
-                    <div class="col s5">
-                        <h5><small><b>Client</b></small></h5>
+                    <div class="col s6">
+                        <h5><small><b>Remarques</b></small></h5>
                         <div class="divider"></div>
-                        <p>{{intervention.Customer.FullName}}</p>
-                        <p><i class="tiny material-icons">call</i> {{intervention.Customer.Phone}}</p>
+                        <p>{{intervention.Remarks}}</p>
                     </div>
+
                 </div>
 
                 <div class="row">
-                    <h5><small><b>Date</b></small></h5>
-                    <p>{{intervention.StartDate | date:'yyyy MMMM dd'}} - {{intervention.EndDate | date:'yyyy MMMM dd'}}</p>
-                </div>
-
-                <div class="row">
-                    <h5><small><b>Further information</b></small></h5>
-                        <p> Additionnal attributes</p>
+                    <div class="col s6">
+                        <h5><small><b>Autres informations</b></small></h5>
+                        <p> Nécessite un cable de plus de 20 m car mur non perçable</p>
+                    </div>
+                    <div class="col s6">
+                        <h5><small><b>Travaux</b></small></h5>
+                        <p>Vérificaction de l'emplacement <i class=" blue-text tiny material-icons">thumb_up</i></p>
+                        <p>Préparation des installations <i class=" blue-text tiny material-icons">thumb_up</i></p>
+                        <p>Percer les murs <i class=" red-text tiny material-icons">thumb_down</i></p>
+                    </div>
                 </div>
 
 
@@ -107,13 +118,10 @@
                 <h5 class="center">{{interventionGroup.Name}}</h5>
                 <p class="center">{{interventionGroup.Description}}</p>
 
-                <div class="card grey lighten-3 col s4 offset-s1" ng-repeat="user in interventionGroup.Users">
+                <div class="card grey lighten-3 col s5 offset-s1" ng-repeat="user in interventionGroup.Users">
                     <div class="card-content black-text">
-                        <h5><small><span >{{user.FullName}} | {{user.Type.Type}}</span></small></h5>
-                        <p><i class="tiny material-icons">call</i> {{user.Phone}}</p>
-
-                            <p>skills:</p>
-                            <span class="chip" ng-repeat="skill in user.Skills">{{skill.Title}}</span>
+                        <h5><small><span ><a ui-sref="technicians">{{user.FullName}}</a> | Technicien</span></small></h5>
+                            <span >Décodeur, Box internet, Maintenance</span>
 
                     </div>
                 </div>
@@ -122,20 +130,51 @@
             </div>
 
             <div id ="project" class="col s7 ">
+
+                <div class="col s6 offset-s3">
+                    <div class="row">
+                        <h5>Pack 3 en 1 Jary </h5>
+                        <div class="divider"></div>
+                        <p> Projet d'installation du pack fibre + télévision + téléphone</p>
+                    </div>
+
+                    <div class="row">
+                        <h5><small>Progression</small></h5>
+                        <div class="divider"></div>
+                        <p>07 Septembre 2016 au 15 Septembre 2016</p>
+                        100%
+                        <div class="progress">
+                            <div class="determinate" style="width: 100% "></div>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="row">
+                        <h5><small>Créer par :</small></h5> <p> Administrateur</p>
+
+                        <button class="btn green">Details</button>
+
+                    </div>
+
+                </div>
+
+
             </div>
             <div id ="location" class="col s7 ">
 
                 <div id="mapid"></div>
                 <script>
 
-                    var map = L.map('mapid').setView([-18.980595, 47.539415], 13);
+                    var map = L.map('mapid').setView([-18.950940, 47.525204], 13);
 
                     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
                         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     }).addTo(map);
 
 
-                    L.marker([-18.980595, 47.539415]).addTo(map)
+                    L.marker([-18.950940, 47.525204]).addTo(map)
                             .bindPopup('{{intervention.Customer.Adress}}')
                             .openPopup();
                 </script>

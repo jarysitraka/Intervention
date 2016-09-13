@@ -20,10 +20,10 @@
                         <div class="row">
                             <ul class="tabs">
                                 <li class="tab col s2"><a class="active" href="#basiquetab">Générale</a></li>
-                                <li id="tabclient" class="tab col s2 " ><a  href="#clienttab">Client</a></li>
-                                <li id="tabgroup" class="tab col s3 " ><a href="#grouptab">Groupe d'intervention</a></li>
-                                <li id="tabwork" class="tab col s2 " ><a href="#worktab">Tarification</a></li>
-                                <li id="tabsupp" class="tab col s3 " ><a href="#supptab">Infromations additionelles</a></li>
+                                <li id="tabclient" class="tab col s2 disabled" ><a  href="#clienttab">Client</a></li>
+                                <li id="tabgroup" class="tab col s3 disabled" ><a href="#grouptab">Groupe d'intervention</a></li>
+                                <li id="tabwork" class="tab col s2 disabled" ><a href="#worktab">Tarification</a></li>
+                                <li id="tabsupp" class="tab col s3 disabled" ><a href="#supptab">Infromations additionelles</a></li>
                             </ul>
 
                             <div class="container">
@@ -148,11 +148,78 @@
 </div>
 <div id="confirmation" class="modal modal-fixed-footer">
     <div class="modal-content">
-        <h4 class="center yellow-text">Confirmation d'ajout d'intervention</h4>
-        <p>A bunch of text</p>
+        <h4 class="center teal-text"><small>Les informations ci-dessous sont-elles correctes?</small></h4>
+
+        <div class="contrainer">
+
+
+                <div class="row">
+                    <div class="col s6">
+                        <h5>Nom</h5>
+                        <div class="divider"></div>
+                        <p>Installation matériel</p>
+                    </div>
+
+                    <div class="col s6">
+                        <h5>Remarque</h5>
+                        <div class="divider"></div>
+                        <p>Urgent</p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col s6">
+                        <h5>Debut</h5>
+                        <div class="divider"></div>
+                        <p>22 Sept 2016</p>
+                    </div>
+
+                    <div class="col s6">
+                        <h5>Fin</h5>
+                        <div class="divider"></div>
+                        <p>22 Sept 2016</p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col s6">
+                        <h5>Client</h5>
+                        <div class="divider"></div>
+                        <p>Tsito Razafindrakoto</p>
+                    </div>
+
+                    <div class="col s6">
+                        <h5>Groupe d'intervention</h5>
+                        <div class="divider"></div>
+                        <p>Team One</p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col s6">
+                        <h5>Travaux</h5>
+                        <div class="divider"></div>
+                        <p>intall box</p>
+                        <p>test signal</p>
+                    </div>
+
+                    <div class="col s6">
+                        <h5>Projet</h5>
+                        <div class="divider"></div>
+                        <p>Pack 2 en 1 Tsito</p>
+                    </div>
+
+                </div>
+
+        </div>
     </div>
     <div class="modal-footer">
-        <a  class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+        <a  class="modal-action modal-close waves-effect waves-green btn-flat red white-text">Rectifier</a>&nbsp;&nbsp;&nbsp;
+        <a ui-sref="planning" id="correct" class="modal-action modal-close waves-effect waves-green btn-flat green white-text">Correctes</a>
+
     </div>
 </div>
 
@@ -181,6 +248,10 @@
 
 
 
+    });
+
+    $('#correct').click(function () {
+        Materialize.toast("l'intervention a bien été ajouté", 3000, 'green');
     });
 
     $('.datepicker').pickadate({
@@ -276,17 +347,16 @@
 
     $('#autocomplete-client').autocomplete({
         data: {
-            "Apple": null,
-            "Microsoft": null,
-            "Google": 'http://placehold.it/250x250'
+            "Jary Sitraka Razafindrakoto": null,
+            "Tsito Razafindrakoto ": null,
+            "Harifetra Francky Andrianarijaona": null
         }
     });
 
     $('#autocomplete-group').autocomplete({
         data: {
-            "Apple": null,
-            "Microsoft": null,
-            "Google": 'http://placehold.it/250x250'
+            "Team One": null,
+            "TV maintenance": null
         }
     });
 
@@ -300,9 +370,10 @@
 
     $('#autocomplete-project').autocomplete({
         data: {
-            "Apple": null,
-            "Microsoft": null,
-            "Google": 'http://placehold.it/250x250'
+            "Pack 2 en 1 Tsito": null,
+            "Pack 3 en 1 Jary": null,
+            "Verification des devices": null,
+            "Remplacement des cables": null
         }
     });
 
