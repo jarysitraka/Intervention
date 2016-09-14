@@ -30,6 +30,7 @@
             <div class="card ">
                 <div class=" center card-content blue-text">
                     <span class="card-title "><small>10 clients</small></span>
+                    <p>Enregistrés</p>
                 </div>
             </div>
         </div>
@@ -38,6 +39,7 @@
             <div class="card ">
                 <div class="card-content  center teal-text">
                     <span class="card-title"><small>3 Interventions <i class=" teal-text tiny material-icons">done</i></small></span>
+                    <p class="teal-text">Terminées</p>
                 </div>
             </div>
         </div>
@@ -46,6 +48,7 @@
             <div class="card ">
                 <div class="card-content  center red-text">
                     <span class="card-title"><small>3 Interventions <i class=" red-text tiny material-icons">snooze</i></small></span>
+                    <p class="red-text">En retards</p>
                 </div>
             </div>
         </div>
@@ -54,6 +57,7 @@
             <div class="card ">
                 <div class="card-content  center blue-text">
                     <span class="card-title"><small>1 Interventions <i class=" blue-text tiny material-icons">alarm_on</i></small></span>
+                    <p class="blue-text">Terminées</p>
                 </div>
             </div>
         </div>
@@ -61,12 +65,14 @@
         <div class="col s2 m2">
             <div class="card ">
                 <div class="card-content  center blue-text">
-                    <span class="card-title"><small>4 Projects <i class=" blue-text tiny material-icons">work</i></small></span>
+                    <span class="card-title"><small>4 Projets <i class=" blue-text tiny material-icons">work</i></small></span>
+                    <p class="blue-text">Au total</p>
                 </div>
             </div>
         </div>
 
     </div>
+
 
     <div id="firstChart" class="row padlr" >
 
@@ -84,10 +90,10 @@
         <div class="col s4 m4" ng-controller="pie">
             <div class="card ">
                 <div class="card-content ">
-                    <h6 > Etats des interventions </h6>
-                    <canvas id="pie" class="chart chart-pie"
-                            chart-data="data" chart-labels="labels" chart-options="options">
-                    </canvas>
+                    <h6> Etats des interventions : <span class="grey-text">Planifiées</span> / <span class="blue-text">Terminées</span> / <span class="red-text">retards</span> </h6>
+                            <canvas id="pie" class="chart chart-pie"
+                                    chart-data="data" chart-labels="labels" chart-options="options">
+                            </canvas>
                 </div>
             </div>
         </div>
