@@ -72,7 +72,7 @@ myApp.controller('PlanningCtrl',function ($scope, $rootScope,$filter,$cookies,$c
     /* alert on Drop */
     $scope.alertOnDrop = function(event, delta, revertFunc, jsEvent, ui, view){
         //$scope.alertMessage = ('l\'interventionintervention a été déplacé au '+event.start._d+' '  );
-        Materialize.toast("Intallation matériel a bien été séplacé au 24 September 2016", 3000, 'green');
+        Materialize.toast("Intallation materiel a bien été déplacé au 24 Septembre 2016", 3000, 'green');
         console.log(event.start);
         console.log(event.start._d);//nouvel date
         console.log(event.start._i);//nouvel date
